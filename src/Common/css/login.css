@@ -1,0 +1,132 @@
+
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-400');
+@import url('https://fonts.cdnfonts.com/css/typo-grotesk');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=Poppins:wght@600&display=swap');
+
+.container-40 {
+    max-width: 40% !important;
+    margin: 0 auto;
+}
+
+/* .container-60 {
+    max-width: 60% !important;
+    margin: 0 auto;
+} */
+
+.container-75 {
+    max-width: 75% !important;
+    margin: 0 auto;
+}
+
+.container-80 {
+    max-width: 80% !important;
+    margin: 0 auto;
+}
+
+.container-85 {
+    max-width: 85% !important;
+    margin: 0 auto;
+}
+
+.container-90 {
+    max-width: 90% !important;
+    margin: 0 auto;
+}
+
+.container-95 {
+    max-width: 95% !important;
+    margin: 0 auto;
+}
+
+.container-98 {
+    max-width: 98% !important;
+}
+
+.container-100 {
+    max-width: 100% !important;
+}
+
+
+
+.main-content{
+	width: 50%;
+	border-radius: 20px;
+	box-shadow: 0 5px 5px rgba(0,0,0,.4);
+	margin: 5em auto;
+	display: flex;
+}
+.company__info{
+	background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: #fff;
+}
+.fa-android{
+	font-size:3em;
+}
+.login-section label{
+    color: black;
+}
+@media screen and (max-width: 640px) {
+	.login-section .main-content{width: 90%;}
+	.company__info{
+		display: none;
+	}
+	.login_form{
+		border-top-left-radius:20px;
+		border-bottom-left-radius:20px;
+	}
+}
+@media screen and (min-width: 642px) and (max-width:800px){
+	.main-content{width: 70%;}
+}
+.row > h2{
+	color:#008080;
+}
+.login_form{
+	background-color: #fff;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	border-top:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+.login-section form{
+	padding: 0 2em;
+}
+/* .login-section .form__input{
+	width: 100%;
+	border:0px solid transparent;
+	border-radius: 0;
+	border-bottom: 1px solid #aaa;
+	padding: 1em .5em .5em;
+	padding-left: 2em;
+	outline:none;
+	margin:1.5em auto;
+	transition: all .5s ease;
+} */
+.form__input:focus{
+	border-bottom-color: #008080;
+	box-shadow: 0 0 5px rgba(0,80,80,.4); 
+	border-radius: 4px;
+}
+.login-section .btn{
+	transition: all .5s ease;
+	width: 70%;
+	border-radius: 30px;
+	color:#008080;
+	font-weight: 600;
+	background-color: #fff;
+	border: 1px solid #008080;
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+.btn:hover, .btn:focus{
+	background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+	color:#fff;
+}
+.login-section .register{
+    color:var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%)) ;
+}

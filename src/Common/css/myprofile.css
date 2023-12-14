@@ -1,0 +1,185 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-400');
+@import url('https://fonts.cdnfonts.com/css/typo-grotesk');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=Poppins:wght@600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: DM Sans;
+    font-style: normal;
+}
+
+.user-position{
+    position: sticky;
+    top: 13%;
+}
+
+.my-profile {
+    background: #F1F1F1;
+    padding-top: 3%;
+}
+
+.account-details {
+    border-radius: 12px;
+    border: 0.5px solid #D0D0D0;
+    background: #FFF;
+    border: none;
+}
+
+
+.profile-name h4 {
+    color: #2F2F2F;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.profile-name h5 {
+    color: #383838;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.profile-name h6 {
+    color: #2BB673;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.profile-container {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-details li {
+    margin: 12px 0px;
+}
+
+.profile-details .active {
+    color: #2BB673 !important;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.profile-details .hover-action {
+    cursor: pointer;
+}
+
+.complete-card {
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 0.5px solid #D0D0D0;
+    background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+}
+
+.complete-card h1 {
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.complete-card span {
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.complete-card h4 {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.complete-card p {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.complete-card button {
+    padding: 10px 40px;
+    border-radius: 30px;
+    border: 1px solid #FFF;
+    background: none;
+    color: #FFF;
+    text-align: center;
+    font-family: Syne;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+
+
+/* benifit css start  */
+
+.benifit-details h2 {
+    color: #2F2F2F;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.benifit-details span {
+    color: #FF3A44;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.benifit-details ul li {
+    width: 80%;
+    margin-bottom: 10px;
+    color: #383838;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.benifit-details h1 {
+    margin-top: 30px;
+    color: #2F2F2F;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.benifit-details button {
+    margin: 20px 0px;
+    padding: 10px 40px;
+    border-radius: 30px;
+    border: 1px solid var(--style-2, #2BB673);
+    color: #2BB673;
+    text-align: center;
+    font-family: Syne;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+}

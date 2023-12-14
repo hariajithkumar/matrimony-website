@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-400');
+@import url('https://fonts.cdnfonts.com/css/typo-grotesk');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=Poppins:wght@600&display=swap');
+
+.section-contact .header-bg-img {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url('../image/header-image.png'), lightgray 0px -281.55px / 100% 166.431% no-repeat;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    overflow: hidden;
+}
+.section-contact .header-active {
+    width: 60%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.section-contact .header-position {
+    width: 60%;
+    margin: 0 auto;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.contact-inform{
+    padding: 50px 10px;
+}
+.section-contact .details-contact h1 {
+    color: #000;
+    font-family: DM Sans;
+    font-size: 51px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.section-contact .details-contact p {
+    padding: 30px 0px;
+    color: #8E8E8E;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: DM Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    /* 150% */
+}
+
+.section-contact .details-contact h5 {
+    color: #323232;
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.section-contact .details-contact h6 {
+    color: #8E8E8E;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.form-content {
+    padding: 100px 30px;
+    background: #FFF;
+    box-shadow: 0px 2px 11px 0px rgba(181, 181, 181, 0.25);
+}
+
+.form-content h2 {
+    color: #000;
+    font-family: DM Sans;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.75px;
+}
+.form-content input{
+    height: 50px;
+}
+.form-content button {
+    margin-top: 25px;
+    padding: 20px 30px;
+    color: #FFF;
+    font-family: Syne;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 30px;
+    background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+    border: none;
+}
+
+.form-content input::placeholder {
+    color: #BCBCBC;
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.18px;
+}
+.form-content textarea::placeholder {
+    color: #BCBCBC;
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.18px;
+}
+

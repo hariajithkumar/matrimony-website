@@ -1,0 +1,287 @@
+.section-profiles {
+    border-radius: 12px;
+    border: 0.5px solid #D0D0D0;
+    background: #FFF;
+}
+
+.profile-photo {
+    border-radius: 12px;
+    background-image: url('../image/profile-photo.png');
+    height: 50vh !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-photo img {
+    margin-left: 75%;
+    margin-top: 3%;
+}
+
+.editprofile {
+    margin-left: 90% !important;
+    margin-top: 3%;
+}
+
+.profile-id {
+    margin-top: 35%;
+    margin-left: 5%;
+}
+
+.profile-id h1 {
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.profile-id p {
+    color: #FFF;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+
+.profile-verify {
+    margin: 15px;
+    border-radius: 12px;
+    border: 0.5px solid #D0D0D0;
+    background: #FFF;
+}
+
+.verify {
+    padding: 10px 20px;
+}
+
+.verify h2 {
+    color: #2F2F2F;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.verify span {
+    color: #2BB673;
+}
+
+.profile-item {
+    margin: 15px;
+    border-radius: 12px;
+    border: 0.5px solid #D0D0D0;
+    background: #FFF;
+}
+
+.profile-item h1 {
+    background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.profile-item p {
+    color: #7A7A7A;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.profile-edit h4 {
+
+    color: #4F4F4F;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.profile-degree {
+    margin: 15px;
+    border-radius: 12px;
+    border: 0.5px solid #D0D0D0;
+    background: #FFF;
+}
+
+.degree-details h4 {
+    color: #262626;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.degree-details h5 {
+    color: #4F4F4F;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 23px;
+}
+
+.degree-details h3 {
+    color: #7A7A7A;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.degree-details span {
+    color: #2BB673;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.degree-details input {
+    padding: 10px 10px;
+    border-radius: 7px;
+    border: 1px solid #E5E5E5;
+}
+
+.degree-details input::placeholder {
+    color: #BCBCBC;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.card-views {
+    height: 25vh;
+    border-radius: 12px;
+    border: 0.5px solid #D0D0D0;
+    background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+}
+
+.proof-verify {
+    padding: 10px;
+}
+
+.proof-verify h2 {
+    color: #2F2F2F;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.proof-verify p {
+    color: #383838;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.selectid {
+    color: #2F2F2F;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+.select-id {
+    padding: 10px;
+}
+
+.select-id:optional {
+    color: #4F4F4F !important;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.proof-verified span {
+    color: #2BB673;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+
+.edit-basic label {
+    color: #2F2F2F;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26x;
+}
+
+.edit-basic input {
+    padding: 10px;
+}
+
+.edit-basic input:valid {
+    color: #4F4F4F;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.edit-basic input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+}
+
+.edit-basic button {
+    margin-top: 10px;
+    padding: 10px 100px;
+    border-radius: 30px;
+    border: 1px solid #2BB673;
+    background: #FFF;
+    color: #2BB673;
+    text-align: center;
+    font-family: Syne;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.close-btn {
+    border-radius: 10px;
+    width: 20px;
+    height: 25px;
+}
+
+.save-btn button{
+    padding: 10px 50px;
+    border: none;
+    border-radius: 30px;
+    border: 1px solid var(--style-2, #2BB673);
+    background: #FFF;
+    color: #2BB673;
+    text-align: center;
+    font-family: Syne;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.upload-img{
+    padding: 10px 50px;
+    margin: 10px ;
+    border: none;
+    border-radius: 30px;
+    border: 1px solid var(--style-2, #2BB673);
+    background: #FFF;
+    color: #2BB673;
+    text-align: center;
+    font-family: Syne;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

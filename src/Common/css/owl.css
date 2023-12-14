@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=Poppins:wght@600&display=swap');
+
+
+.matrimony-list .active {
+	margin-top: 50px;
+	position: relative;
+}
+
+.matrimony-list .center {
+	margin-top: 0px;
+	position: relative;
+}
+
+.card-list {
+	border-radius: 24px 24px 24px 24px;
+	border: 0.5px solid #EFEFEF;
+	background: #993a3a;
+	border: none !important;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.owl-carousel .owl-item .card {
+	position: relative;
+	height: 50%;
+	/* Set your desired height */
+	background-color: #fff;
+	border: 1px solid #ddd;
+	padding: 10px;
+	transition: transform 0.3s ease-in-out;
+}
+
+.owl-stage-outer {
+	padding: 60px 0px;
+}
+
+.owl-carousel .owl-item .card img {
+	width: 100%;
+}
+
+.owl-carousel .owl-item .card:hover {
+	transform: scale(1.1);
+}
+
+.owl-carousel .owl-item .card-contents {
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	display: none;
+}
+
+.owl-carousel .owl-item .card:hover .card-contents {
+	opacity: 1;
+	display: block;
+	padding: 15px 10px;
+	border-radius: 0px 0px 24px 24px;
+	border: 0.5px solid #EFEFEF;
+	background: #f5efef;
+	color: #7E7E7E;
+	font-feature-settings: 'clig' off, 'liga' off;
+	font-family: DM Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 28px;
+	/* 155.556% */
+}
+
+.hidden-content {
+	color: #2F2F2F;
+	font-feature-settings: 'clig' off, 'liga' off;
+	font-family: DM Sans;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 28px;
+}
+
+.owl-carousel .owl-item .card:hover .hidden-content {
+	opacity: 0;
+	margin-top: -100px;
+}
+
+.owl-carousel .owl-item .card:hover img {
+
+	width: 100%;
+}
+
+.card .active {
+	width: 400px !important;
+}
+
+.owl-next {
+	width: 30px;
+	border-radius: 20px;
+	color: #FFF !important;
+	font-size: 30px !important;
+	background: linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%) !important;
+}
+
+.owl-prev {
+	width: 30px;
+	border-radius: 30px;
+	font-size: 30px !important;
+	color: #FFF !important;
+	background: linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%) !important;
+}
+.card-view{
+	opacity: 1;
+	display: block;
+	padding: 15px 10px;
+	border-radius: 0px 0px 24px 24px;
+	border: 0.5px solid #EFEFEF;
+	background: #f5efef;
+	color: #7E7E7E;
+	font-feature-settings: 'clig' off, 'liga' off;
+	font-family: DM Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 28px;
+}
