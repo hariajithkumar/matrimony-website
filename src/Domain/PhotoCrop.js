@@ -101,8 +101,8 @@ const PhotoCrop = () => {
                 {cropImage.map((data, index) => {
                     return (
                         <>
-                            <div className='col-4 my-3'>
-                                <img src={data} className='w-75 h-100' />
+                            <div className='col-6 my-3 text-center'>
+                                <img src={data} className='h-100 upload-photo' />
                                 <button type="button" className="close position-absolute border-0 bg-none close-btn" onClick={() => deleteitem(index)}>
                                     <FontAwesomeIcon icon={faClose} />
                                 </button>

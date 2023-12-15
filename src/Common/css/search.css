@@ -17,7 +17,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 50vh;
+    height: 0%;
     overflow: hidden;
 }
 
@@ -25,7 +25,7 @@
     border-radius: 16px;
     background: #FFF;
     box-shadow: 0px 5px 16px 0px rgba(8, 15, 52, 0.06);
-    padding: 100px 0px;
+    padding: 50px 0px;
 }
 
 .nav-tabs {
@@ -33,7 +33,9 @@
     padding: 15px 0.7rem;
 
 }
-
+.bg-active-tabs{
+    background:#F3F3F3 !important;
+}
 .search-card .nav-item {
     width: 33%;
     display: flex;
@@ -80,8 +82,10 @@
     /* background-color: #444;
     border-radius: 30px;
     color: #FFFFFF; */
-    border-bottom: 2px solid #00425E;
-    border-radius: 1px;
+    /* border-bottom: 2px solid #00425E;
+    border-radius: 1px; */
+    border-radius: 30px;
+    border: 1px solid var(--style-2, #2BB673);
 }
 
 .nav-tabs>.nav-item>.nav-link i.now-ui-icons {
@@ -153,6 +157,7 @@
         font-weight: 900;
         line-height: 55px;
     }
+
     .search-card .header-active {
         width: 60%;
         margin: 0 auto;
@@ -244,10 +249,12 @@
         margin-bottom: 10px;
     }
 }
-.header-content h2{
+
+.header-content h2 {
     padding: 150px 0px !important;
 }
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 430px) {
     .section-search .header-content h2 {
         color: #FFF;
         font-family: Typo Grotesk Black;
@@ -256,11 +263,12 @@
         font-weight: 900;
         line-height: 35px;
     }
+
     .search-card .nav-tabs {
         display: inline-block;
         width: 100%;
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 0px;
+        padding-right: 0px;
         text-align: center;
     }
 

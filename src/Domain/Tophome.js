@@ -53,11 +53,11 @@ function Tophome() {
                             <form>
                                 <h2 className='text-center register-head'>FREE FOR REGISTER NOW</h2>
                                 <div className='row m-0 px-2'>
-                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-3'>
+                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2'>
                                         <label>Name *</label>
                                         <input type="text" className="form-control" placeholder='Your Name' />
                                     </div>
-                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-3'>
+                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2'>
                                         <label>Gender *</label><br/>
                                         <select className=""  aria-label="Default select example">
                                             <option selected>Select gender</option>
@@ -65,15 +65,15 @@ function Tophome() {
                                             <option value="2">Female</option>
                                         </select>
                                     </div>
-                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-3'>
+                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2'>
                                         <label>Mobile Number *</label>
                                         <input type="text" className="form-control" placeholder='Your Name' />
                                     </div>
-                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-3'>
+                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2'>
                                         <label>E-Mail Address *</label>
                                         <input type="text" className="form-control" placeholder='Your Email' />
                                     </div>
-                                    <div className='col-lg-4 col-md-6 col-sm-12 col-12 ps-2 my-3 position-relative'>
+                                    <div className='col-lg-4 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2 position-relative'>
                                         <label>Date of Birth *</label>
                                         <input type="date" id='datepicker' className="form-control" placeholder='Your DOB' />
                                         {/* <span className='position-absolute img-calender'><img src={calender} /></span> */}
@@ -90,7 +90,7 @@ function Tophome() {
                                             <FaCalendarAlt className="date-picker-icon" />
                                         </div>
                                     </div> */}
-                                    <div className='col-lg-4 col-md-6 col-sm-12 col-12 ps-2 my-3'>
+                                    <div className='col-lg-4 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2'>
                                         <label>Religion *</label>
                                         <select className="option-select" aria-label="Default select example">
                                             <option selected>Select</option>
@@ -99,7 +99,7 @@ function Tophome() {
                                             <option value="Muslim">Muslim</option>
                                         </select>
                                     </div>
-                                    <div className='col-lg-4 col-md-6 col-sm-12 col-12 ps-2 my-3'>
+                                    <div className='col-lg-4 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2'>
                                         <label>Caste *</label>
                                         <select className="option-select" aria-label="Default select example">
                                             <option selected>Select</option>
@@ -108,7 +108,7 @@ function Tophome() {
                                             <option value="Muslim">Muslim</option>
                                         </select>
                                     </div>
-                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-3'>
+                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2'>
                                         <label>Password *</label>
                                         <div className="input-group box-border">
                                             <input type={showPassword ? 'text' : 'password'} className="form-control border-0" id="password" placeholder="Enter your password" required />
@@ -117,7 +117,7 @@ function Tophome() {
                                             </button>
                                         </div>
                                     </div>
-                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-3 '>
+                                    <div className='col-lg-6 col-md-6 col-sm-12 col-12 ps-2 my-lg-3 my-2 '>
                                         <label>Confirm Password *</label>
                                         <div className="input-group box-border">
                                             <input type={confirm ? 'text' : 'password'} className="form-control border-0" id="password" placeholder="Confrim your Password" />

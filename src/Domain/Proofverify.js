@@ -113,7 +113,7 @@ function Proofverify() {
                                                     <>
                                                         {previewUrls.length == 2 ? <></> :
                                                             <>
-                                                                <input type="file" id="upload" onChange={handleFileUpload} style={{ display: 'black' }} />
+                                                                <input type="file" id="upload" onChange={handleFileUpload} style={{ display: 'none' }} />
                                                                 <label htmlFor="upload" className="custom-file-upload">
                                                                     <img src={upload} alt="upload" className="w-100 h-100" />
                                                                 </label>

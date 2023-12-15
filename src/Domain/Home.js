@@ -673,7 +673,7 @@ function Home() {
                 <img src={prev} />
                 <span className="visually-hidden">Previous</span>
               </button>
-              <button className="carousel-control-next prev-btn" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <button className="carousel-control-next prev-btn next-btn" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                 <img src={next} />
                 <span className="visually-hidden">Next</span>
               </button>

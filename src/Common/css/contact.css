@@ -128,4 +128,33 @@
     line-height: 28px;
     letter-spacing: 0.18px;
 }
+@media (max-width: 430px) {
+    .section-contact .details-contact h1 {
+        font-size: 35px;
+    }
+    .section-contact .details-contact p {
+        padding: 20px 0px;
+        font-size: 18px;
+        line-height: 28px;
+    }
 
+}
+@media (max-width: 380px) {
+    .section-contact .details-contact h1 {
+        font-size: 28px;
+    }
+    .section-contact .details-contact p {
+        padding: 15px 0px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .form-content {
+        padding: 50px 30px;
+        background: #FFF;
+        box-shadow: 0px 2px 11px 0px rgba(181, 181, 181, 0.25);
+    }
+    .form-content h2 {
+        font-size: 20px;
+    }
+
+}

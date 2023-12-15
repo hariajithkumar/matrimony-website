@@ -28,30 +28,30 @@ function Contact() {
                 <h2 className='text-center mb-sm-3'>Contact Us</h2>
             </div>
             <div style={{ background: '#FBFBFB' }} className='details-contact'>
-                <div className='py-5 container-90'>
+                <div className='py-lg-5 py-3 container-90'>
                     <div className='row m-0'>
                         <div className='col-lg-6 col-md-12 col-sm-12 col-12 contact-inform'>
                             <h1>Contact Information</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis nunc a molestie dictum. Mauris venenatis, felis scelerisque aliquet lacinia, nulla nisi venenatis odio, id blandit mauris ipsum id sapien.</p>
                             <div className='row'>
-                                <div className='col-2 text-center pb-5'>
+                                <div className='col-3 p-0 text-center pb-5'>
                                     <img src={call} className='' />
                                 </div>
-                                <div className='col-10 pb-5'>
+                                <div className='col-9 px-0 pb-5'>
                                     <h5>Call Us</h5>
                                     <h6>(199) 661-1451</h6>
                                 </div>
-                                <div className='col-2 text-center pb-5'>
+                                <div className='col-3 p-0 text-center pb-5'>
                                     <img src={message} className='' />
                                 </div>
-                                <div className='col-10 pb-5'>
+                                <div className='col-9 px-0 pb-5'>
                                     <h5>Write to us</h5>
                                     <h6>sofía.suárez@skansxka.net</h6>
                                 </div>
-                                <div className='col-2 text-center pb-5'>
+                                <div className='col-3 p-0 text-center pb-5'>
                                     <img src={home} className='' />
                                 </div>
-                                <div className='col-10 pb-5'>
+                                <div className='col-9 px-0 pb-5'>
                                     <h5>Address</h5>
                                     <h6>1700 W Blancke St, kiyev port south USA, American</h6>
                                 </div>
@@ -63,10 +63,10 @@ function Contact() {
                                     <h2>Get in Touch with Us</h2>
                                     <input type="text" className="form-control my-5" placeholder='your Name' />
                                     <div className='row m-0'>
-                                        <div className='col-6 p-0'>
+                                        <div className='col-lg-6 col-md-6 col-12 p-0'>
                                             <input type="text" className="form-control" placeholder='Your Mail' />
                                         </div>
-                                        <div className='col-6 ps-2'>
+                                        <div className='col-lg-6 col-md-6 col-12 ps-lg-2 ps-md-2 mt-lg-0 mt-md-0 mt-5 px-0'>
                                             <input type="text" className="form-control" placeholder='Your Number' />
                                         </div>
                                     </div>

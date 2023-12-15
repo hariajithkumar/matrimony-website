@@ -248,10 +248,10 @@ header ul li:hover {
     color: #FFF;
     font-family: Typo Grotesk Black;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 60px;
+    font-size: 40px;
     font-style: normal;
-    font-weight: 900;
-    line-height: 70px;
+    font-weight: 500;
+    line-height: 50px;
 }
 
 .header-content .waiting-text {
@@ -1075,8 +1075,8 @@ footer {
 .section-about .header-bg-img{
     margin: 0;
     padding: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), lightgray 0px -281.55px / 100% 166.431%;
-    background-image: url('../image/header-image.png') !important;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url('../image/header-image.png'), lightgray 0px -281.55px / 100% 166.431% no-repeat;
+    /* background-image: url('../image/header-image.png') !important; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1086,8 +1086,8 @@ footer {
 .faq .header-bg-img{
     margin: 0;
     padding: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), lightgray 0px -281.55px / 100% 166.431%;
-    background-image: url('../image/header-image.png') !important;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url('../image/header-image.png'), lightgray 0px -281.55px / 100% 166.431% no-repeat;
+    /* background-image: url('../image/header-image.png') !important; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1307,7 +1307,7 @@ footer {
     /* section css start */
     /* section profile css start  */
     .section-start {
-        margin-top: 30%;
+        margin-top: 5%;
     }
 
     .section-profile h5 {
@@ -1346,7 +1346,7 @@ footer {
     /* section work css start  */
     .work-img {
         background: url('../image/work.png');
-        height: 100vh;
+        /* height: 100vh; */
         background-size: cover;
         background-repeat: no-repeat;
         /* background-color: #FFF; */
@@ -1627,7 +1627,7 @@ footer {
         padding: 15px 10px;
         color: #FFF;
         font-family: DM Sans;
-        font-size: 10px;
+        font-size: 20px;
         font-style: normal;
         font-weight: 500;
         border-radius: 15px;
@@ -1838,7 +1838,7 @@ footer {
     /* section css start */
     /* section profile css start  */
     .section-start {
-        margin-top: 50%;
+        margin-top: 5%;
     }
 
     .section-profile h5 {
@@ -1877,7 +1877,7 @@ footer {
     /* section work css start  */
     .work-img {
         background: url('../image/work.png');
-        height: 100vh;
+        /* height: 100vh; */
         background-size: cover;
         background-repeat: no-repeat;
         /* background-color: #FFF; */
@@ -2376,11 +2376,11 @@ footer {
     /* section css start */
     /* section profile css start  */
     .section-start {
-        margin-top: 50%;
+        margin-top:0%;
     }
 
     .section-profile {
-        padding-top: 100px;
+        padding-top: 50px;
     }
 
     .section-profile h5 {
@@ -2965,11 +2965,11 @@ footer {
     /* section css start */
     /* section profile css start  */
     .section-start {
-        margin-top: 100%;
+        margin-top: 0%;
     }
 
     .section-profile {
-        padding-top: 100px;
+        padding-top: 50px;
     }
 
     .section-profile h5 {

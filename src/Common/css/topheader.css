@@ -8,7 +8,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -16,9 +16,9 @@
     padding-top: 0px !important;
 }
 
-.nav-logo {
+/* .nav-logo {
     width: 75% !important;
-}
+} */
 
 .navbarlist {
     border-radius: 0px;
@@ -124,8 +124,9 @@
 }
 
 .register-form {
-    width: 42%;
+    width: 45%;
     margin-left: 5%;
+    margin-bottom: 2%;
     border-radius: 15px;
     border: 1px solid #FFF;
     background: linear-gradient(248deg, rgba(2, 196, 141, 0.17) -1.29%, rgba(255, 255, 255, 0.00) 103.79%);
@@ -139,7 +140,7 @@
     background: #1A8F6F;
     color: #FFF;
     font-family: DM Sans;
-    font-size: 28px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -246,4 +247,43 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+
+@media screen and (max-width: 992px) {
+    .register-form {
+        width: 55%;
+        margin-left: 5%;
+        margin-bottom: 2%;
+        border-radius: 15px;
+        border: 1px solid #FFF;
+        background: linear-gradient(248deg, rgba(2, 196, 141, 0.17) -1.29%, rgba(255, 255, 255, 0.00) 103.79%);
+        box-shadow: 2px 2px 100px 0px rgba(66, 66, 66, 0.10) inset, -2px -2px 100px 0px rgba(255, 255, 255, 0.10) inset;
+        -webkit-backdrop-filter: blur(25px);
+        backdrop-filter: blur(25px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .register-form {
+        width: 60%;
+        margin-left: 5%;
+        margin-bottom: 2%;
+    }
+    .form-submit label {
+        font-size: 13px;
+    }
+    .agree:disabled {
+        margin: 0px 10px;
+    }
+}
+@media screen and (max-width: 430px) {
+    .register-form {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 2%;
+    }
+    .form-submit label {
+        font-size: 12px;
+    }
 }

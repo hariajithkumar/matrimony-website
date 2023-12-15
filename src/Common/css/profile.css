@@ -255,7 +255,7 @@
     height: 25px;
 }
 
-.save-btn button{
+.save-btn button {
     padding: 10px 50px;
     border: none;
     border-radius: 30px;
@@ -270,9 +270,9 @@
     line-height: normal;
 }
 
-.upload-img{
+.upload-img {
     padding: 10px 50px;
-    margin: 10px ;
+    margin: 10px;
     border: none;
     border-radius: 30px;
     border: 1px solid var(--style-2, #2BB673);
@@ -284,4 +284,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+.upload-photo {
+    width: 90%;
+    border-radius: 12px;
+    border: 0.5px solid #D0D0D0;
+    background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
 }

@@ -15,13 +15,13 @@ function Footer() {
             <footer>
                 <div className='container-90'>
                     <div className='row m-0 footer-top align-items-stretch justify-content-center'>
-                        <div className='col-lg-3 col-md-4 col-sm-6 col-12'>
+                        <div className='col-lg-3 col-md-12 col-sm-12 col-12'>
                             <img src={Logowhite} />
                             <p>We are the most trusted matrimonial service for Indians, offering a wide range of matchmaking services.</p>
                             <img src={GooglePlay} alt='GooglePlay' className='w-25' />
                             <img src={AppStore} alt='AppStore' className='w-25' />
                         </div>
-                        <div className='col-lg-3 col-md-4 col-sm-6 col-12 py-3'>
+                        <div className='col-lg-3 col-md-4 col-sm-4 col-6 py-3'>
                             <ul className='footer-list p-0 float-lg-end float-md-none'>
                                 <li className='content-title'>Menu</li>
                                 <li>Packages</li>
@@ -31,7 +31,7 @@ function Footer() {
                                 <li>Contact</li>
                             </ul>
                         </div>
-                        <div className='col-lg-3 col-md-4 col-sm-6 col-12 py-3'>
+                        <div className='col-lg-3 col-md-4 col-sm-4 col-6 py-3'>
                             <ul className='footer-list p-0 float-lg-end float-md-none'>
                                 <li className='content-title'>Privacy & You</li>
                                 <li>Terms of Use</li>
@@ -41,7 +41,7 @@ function Footer() {
                                 <li>Report Misuse</li>
                             </ul>
                         </div>
-                        <div className='col-lg-3 col-md-4 col-sm-6 col-12 py-3'>
+                        <div className='col-lg-3 col-md-4 col-sm-4 col-6 py-3'>
                             <ul className='footer-list p-0 float-lg-end float-md-none'>
                                 <li className='content-title'>Need Help?</li>
                                 <li>Member Login</li>
@@ -53,13 +53,13 @@ function Footer() {
                         </div>
                     </div>
                     <div className='row m-0 py-3 footer-bottom align-items-stretch justify-content-center'>
-                        <div className='col-lg-4 col-md-6 col-sm-12 col-12 text-lg-start text-center'>
+                        <div className='col-lg-4 col-md-4 col-sm-12 col-12 text-lg-start text-center'>
                             <p>© 2023. All rights reserved.</p>
                         </div>
-                        <div className='col-lg-4 col-md-6 col-sm-12  col-12 text-center'>
+                        <div className='col-lg-4 col-md-4 col-sm-12  col-12 text-center'>
                             <p>Designed by Webbitech.com.</p>
                         </div>
-                        <div className='col-lg-4 col-md-6 col-sm-12 col-12 text-lg-end text-center'>
+                        <div className='col-lg-4 col-md-4 col-sm-12 col-12 text-lg-end text-center'>
                             <img src={Facebook}  alt='facebook'/>
                             <img src={Instagram}  alt='Instagram'/>
                             <img src={X}  alt='X'/>
