@@ -147,8 +147,8 @@
 }
 
 .btn-width {
-    width: 90%;
-    margin: 0px 20px;
+    width: 80%;
+    margin: 0px 24px;
     padding: 15px;
     border: none;
     border-radius: 5px;
@@ -163,8 +163,8 @@
 }
 
 .agree:disabled {
-    width: 90%;
-    margin: 0px 20px;
+    width: 80%;
+    margin: 0px 25px !important;
     padding: 15px;
     border: none;
     border-radius: 5px;

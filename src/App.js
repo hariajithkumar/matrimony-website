@@ -19,6 +19,7 @@ import Photoupload from './Domain/Photoupload';
 import Proofverify from './Domain/Proofverify';
 import Imagecrop from './Domain/Imagecrop';
 import Finalcrop from './Domain/FinalCrop';
+import Resizeimage from './Domain/Resizeimage';
 function App() {
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +64,7 @@ function App() {
           <Route path='Proofverify' element={<Proofverify />} />
           {/* <Route path='Imagecrop' element={<Imagecrop />} /> */}
           <Route path='Finalcrop' element={<Finalcrop />} />
-
+          <Route path='resize' element={<Resizeimage />} />
         </>
       </Routes>
     </BrowserRouter>

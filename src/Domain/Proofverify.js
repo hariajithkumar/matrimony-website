@@ -16,8 +16,6 @@ import editprofile from '../Common/image/white-edit.png'
 import verify from '../Common/image/verifydetails.png'
 import ImageCompressor from './ImageCompressor';
 // import ImageUploader from './ImageUploader';
-
-
 // compress fn code 
 
 const units = ["bytes", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
@@ -61,13 +59,15 @@ const imageSize = (file) => {
 
 
 
+
+
 function Proofverify() {
     const [selected, setSelected] = useState('');
     // State for storing file data and preview URLs
     const [files, setFiles] = useState([]);
     const [previewUrls, setPreviewUrls] = useState([]);
-    const [compressedImages, setCompressedImages] = useState([]);
-    const [base64Image, setBase64Image] = useState("");
+    // const [compressedImages, setCompressedImages] = useState([]);
+    // const [base64Image, setBase64Image] = useState("");
 
     // Function to handle file uploads
     // const handleFileUpload = (e) => {
@@ -121,7 +121,7 @@ function Proofverify() {
         };
 
         const compressedImg = await imageCompression(file, options);
-        console.log(6,niceBytes(compressedImg.size))
+        console.log(6, niceBytes(compressedImg.size))
         // Convert the compressed image to base64
         const base64String = await convertToBase64(compressedImg);
 
@@ -220,7 +220,7 @@ function Proofverify() {
                                         </div>
                                         <div className='row m-0 py-3'>
                                             {previewUrls.map((previewUrl, index) => (
-                                                <div className='col-4 mb-2'>
+                                                <div className='col-6 mb-2'>
                                                     <img key={index} src={previewUrl} alt="preview" className='w-100 card-views p-0' />
                                                     <button type="button" className="close position-absolute border-0 bg-none close-btn" onClick={() => deleteitem(index)}>
                                                         <FontAwesomeIcon icon={faClose} />
