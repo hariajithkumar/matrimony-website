@@ -89,7 +89,7 @@ function Myprofile() {
         <div className='container-90'>
           <div className='row m-0'>
             <div className='col-lg-3'>
-              <div className='d-lg-block d-none'>
+              <div className='d-lg-block d-none position-section'>
                 <Useraside />
               </div>
             </div>
@@ -491,7 +491,7 @@ function Myprofile() {
               </div>
             </div>
             <div className='col-lg-3 col-12 mt-lg-0 mt-5'>
-              <div className=''>
+              <div className='position-section'>
                 <Benifit />
               </div>
             </div>

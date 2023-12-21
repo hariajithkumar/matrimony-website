@@ -292,6 +292,14 @@
     border: 0.5px solid #D0D0D0;
     background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
 }
+
+
+.position-section{
+    position: sticky;
+    top: 15%;
+}
+
+
 @media (max-width: 992px) {
     .profile-photo img {
         margin-left: 75%;
