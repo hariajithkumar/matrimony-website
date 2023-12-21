@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import Logo from '../image/Sahyatri-Matrimony-Logo.png';
+import Rightnav from '../../Common/page/Rightnav'
 import { setClass1Hide } from '../../Redux/CreateSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/topheader.css'
 function Topheader() {
     const { isClass1Show } = useSelector((state) => state.navButton)
+    const [isRightNavOpen, setIsRightNavOpen] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
     const { pathname, search, hash } = location;
-
+    const toggleRightNav = () => {
+        setIsRightNavOpen(!isRightNavOpen);
+    };
     const navButton = () => {
         if (isClass1Show == false) {
             dispatch(setClass1Hide(true))
@@ -28,7 +32,7 @@ function Topheader() {
     return (
         <>
             <header className='faq-bg-img position-sticky top-0 sticky-header'>
-                <div className='nav-section'>
+                <div className='nav-section b-lg-block d-none'>
                     <nav class="navbar navbar-expand-lg navbarlist sticky-top">
                         <div class="container-fluid container-95">
                             <div className='navbar-width'>
@@ -79,6 +83,7 @@ function Topheader() {
                             </div>
                         </div>
                     </nav>
+                    
                 </div>
             </header>
 

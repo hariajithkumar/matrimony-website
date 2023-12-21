@@ -6,20 +6,29 @@ import { setClass1Hide } from '../../Redux/CreateSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/topheader.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import userprofile from '../image/userprofile.png'
+
+import '../css/myprofile.css'
+
+import Rightnav from './Rightnav';
 
 function Profileheader() {
 
     const { isClass1Show } = useSelector((state) => state.navButton)
     const [isDropdownVisible, setDropdownVisible] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isRightNavOpen, setIsRightNavOpen] = useState(false);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
     const { pathname, search, hash } = location;
-
+    const toggleRightNav = () => {
+        setIsRightNavOpen(!isRightNavOpen);
+    };
     const navButton = () => {
         if (isClass1Show == false) {
             dispatch(setClass1Hide(true))
@@ -52,17 +61,17 @@ function Profileheader() {
             window.removeEventListener('click', handleOutsideClick);
         };
     }, [isDropdownVisible]);
-    
+
     const handleImageClick = () => {
         setIsOpen(!isOpen);
     };
-    const Logout = () =>{
+    const Logout = () => {
         navigate('/')
     }
     return (
         <>
-            <header className='faq-bg-img position-sticky top-0 sticky-header'>
-                <div className='nav-section'>
+            <header className='faq-bg-img position-sticky top-0 sticky-header bg-white'>
+                <div className='nav-section d-lg-block d-none'>
                     <nav class="navbar navbar-expand-lg navbarlist sticky-top">
                         <div class="container-fluid container-95">
                             <div className='navbar-width'>
@@ -109,7 +118,7 @@ function Profileheader() {
                                         </button>
                                         <ul class="dropdown-menu droplist" aria-labelledby="dropdownMenuButton1">
                                             <li><a class="dropdown-item" href="#">Profile</a></li>
-                                            <li><a class="dropdown-item" href="#" onClick={()=>Logout()}>Logout</a></li>
+                                            <li><a class="dropdown-item" href="#" onClick={() => Logout()}>Logout</a></li>
                                         </ul>
                                     </div>
                                 </form>
@@ -118,6 +127,28 @@ function Profileheader() {
                     </nav>
                     <div>
                     </div>
+                </div>
+                <div className='d-lg-none d-block right-bar'>
+                    <div className='row m-0'>
+                        <div className='col-4'>
+                            <div className='w-100 py-3'>
+                                <div class="navbar-brand navbar-width">
+                                    <img src={Logo} alt="Sahyatri-Matrimony-Logo" className='nav-logo' />
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-8 d-flex justify-content-end'>
+                            <form class="d-flex">
+                                <h1 className='username mx-4'>Ajith</h1>
+                                <div className='d-flex align-items-center'>
+                                    <button type='button' onClick={toggleRightNav} className='right-btn'><FontAwesomeIcon icon={faBars} style={{ color: '#FFF' }} /></button>
+                                </div>
+                            </form>
+                            <Rightnav isOpen={isRightNavOpen} onClose={toggleRightNav} />
+                        </div>
+                    </div>
+
+
                 </div>
             </header>
         </>
