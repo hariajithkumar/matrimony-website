@@ -75,11 +75,13 @@ function Partner() {
             <section className='my-profile pb-3'>
                 <div className='container-90'>
                     <div className='row m-0'>
-                        <div className='col-3'>
-                            <Useraside />
+                        <div className='col-lg-3'>
+                            <div className='d-lg-block d-none'>
+                                <Useraside />
+                            </div>
                         </div>
-                        <div className='col-6'>
-                            <div className='section-profile'>
+                        <div className='col-lg-6 col-12'>
+                            <div className='section-profile bg-white pb-3 rounded-4'>
                                 <div className='profile-photo'>
                                     <img src={addphoto} />
                                     <div className='profile-id'>
@@ -94,10 +96,10 @@ function Partner() {
                                 </div>
                                 <div className='profile-item p-3'>
                                     <div className='row m-0 pb-3'>
-                                        <div className='col-lg-8'>
+                                        <div className='col-8'>
                                             <h1>Basic Details</h1>
                                         </div>
-                                        <div className='col-lg-4 align-self-center text-end'>
+                                        <div className='col-4 align-self-center text-end'>
                                             <img src={profiledit} onClick={() => handleEdit('Basic')} />
                                         </div>
                                     </div>
@@ -139,10 +141,10 @@ function Partner() {
                                 </div>
                                 <div className='profile-item profile-degree p-3'>
                                     <div className='row m-0 pb-3'>
-                                        <div className='col-lg-8'>
+                                        <div className='col-8'>
                                             <h1>Education & Occupation details</h1>
                                         </div>
-                                        <div className='col-lg-4 align-self-center text-end'>
+                                        <div className='col-4 align-self-center text-end'>
                                             <img src={profiledit} onClick={() => handleEdit('Education')} />
                                         </div>
                                     </div>
@@ -170,27 +172,27 @@ function Partner() {
                                             </>
                                             :
                                             <>
-                                                <div className='col-lg-1'>
-                                                    <img src={degree} />
-                                                </div>
-                                                <div className='col-lg-10 ms-2'>
-                                                    <h4>Highest degree achieved</h4>
-                                                    <h5>UG Collegee</h5>
-                                                </div>
-                                                <div className='col-lg-1'>
-                                                    <img src={degreemsg} />
-                                                </div>
-                                                <div className='col-lg-10 ms-2'>
-                                                    <h4>Occupation could be</h4>
-                                                    <h5>Doesn’t Matter</h5>
-                                                </div>
-                                                <div className='col-lg-1'>
-                                                    <img src={edit9} />
-                                                </div>
-                                                <div className='col-lg-10 ms-2'>
-                                                    <h4>Should be earning</h4>
-                                                    <h5>Doesn’t Matter</h5>
-                                                </div>
+                                                    <div className='col-1 p-0'>
+                                                        <img src={degree} />
+                                                    </div>
+                                                    <div className='col-10 ms-3'>
+                                                        <h4>Highest degree achieved</h4>
+                                                        <h5>UG Collegee</h5>
+                                                    </div>
+                                                    <div className='col-1 p-0'>
+                                                        <img src={degreemsg} />
+                                                    </div>
+                                                    <div className='col-10 ms-3'>
+                                                        <h4>Occupation could be</h4>
+                                                        <h5>Doesn’t Matter</h5>
+                                                    </div>
+                                                    <div className='col-1 p-0'>
+                                                        <img src={edit9} />
+                                                    </div>
+                                                    <div className='col-10 ms-3'>
+                                                        <h4>Should be earning</h4>
+                                                        <h5>Doesn’t Matter</h5>
+                                                    </div>
                                             </>
                                         }
 
@@ -198,10 +200,10 @@ function Partner() {
                                 </div>
                                 <div className='profile-item profile-degree p-3'>
                                     <div className='row m-0 pb-3'>
-                                        <div className='col-lg-8'>
+                                        <div className='col-8'>
                                             <h1>Religion</h1>
                                         </div>
-                                        <div className='col-lg-4 align-self-center text-end'>
+                                        <div className='col-4 align-self-center text-end'>
                                             <img src={profiledit} onClick={() => handleEdit('Religion')} />
                                         </div>
                                     </div>
@@ -252,31 +254,31 @@ function Partner() {
                                         :
                                         <>
                                             <div className='row m-0 degree-details'>
-                                                <div className='col-lg-1'>
+                                                <div className='col-1 p-0'>
                                                     <img src={edit10} />
                                                 </div>
-                                                <div className='col-lg-10 ms-2'>
+                                                <div className='col-10 ms-3'>
                                                     <h4>Religion</h4>
                                                     <h5>Hindu</h5>
                                                 </div>
-                                                <div className='col-lg-1'>
+                                                <div className='col-1 p-0'>
                                                     <img src={edit13} />
                                                 </div>
-                                                <div className='col-lg-10 ms-2'>
+                                                <div className='col-10 ms-3'>
                                                     <h4>Caste</h4>
                                                     <h5>Gounder, Kongu Vellala Gounder, Pillai, Vanniyar, Vannia Kula Kshatriyar, Others...</h5>
                                                 </div>
-                                                <div className='col-lg-1'>
+                                                <div className='col-1 p-0'>
                                                     <img src={edit11} />
                                                 </div>
-                                                <div className='col-lg-10 ms-2'>
+                                                <div className='col-10 ms-3'>
                                                     <h4>Mother tongue</h4>
                                                     <h5>Tamil</h5>
                                                 </div>
-                                                <div className='col-lg-1'>
+                                                <div className='col-1 p-0'>
                                                     <img src={edit12} />
                                                 </div>
-                                                <div className='col-lg-10 ms-2'>
+                                                <div className='col-10 ms-3'>
                                                     <h4>Manglik</h4>
                                                     <h5>Doesn’t matter</h5>
                                                 </div>
@@ -287,10 +289,10 @@ function Partner() {
                                 </div>
                                 <div className='profile-item profile-degree p-3'>
                                     <div className='row m-0 pb-3'>
-                                        <div className='col-lg-8'>
+                                        <div className='col-8'>
                                             <h1>Lifestyle</h1>
                                         </div>
-                                        <div className='col-lg-4 align-self-center text-end'>
+                                        <div className='col-4 align-self-center text-end'>
                                             <img src={profiledit} onClick={() => handleEdit('Lifestyle')} />
                                         </div>
                                     </div>
@@ -357,31 +359,31 @@ function Partner() {
                                         :
                                         <>
                                             <div className='row m-0 degree-details'>
-                                                <div className='col-lg-1 mt-2'>
+                                                <div className='col-1 p-0 mt-2'>
                                                     <img src={edit14} />
                                                 </div>
-                                                <div className='col-lg-10 ms-2 mt-2'>
+                                                <div className='col-10 ms-2 mt-2'>
                                                     <h4>Drinking Habitr</h4>
                                                     <h5>Doesn’t matter</h5>
                                                 </div>
-                                                <div className='col-lg-1 mt-2'>
+                                                <div className='col-1 p-0 mt-2'>
                                                     <img src={edit15} />
                                                 </div>
-                                                <div className='col-lg-10 ms-2 mt-2'>
+                                                <div className='col-10 ms-2 mt-2'>
                                                     <h4>Dietary Habit</h4>
                                                     <h5 className='sibing'>Doesn’t matter</h5>
                                                 </div>
-                                                <div className='col-lg-1 mt-2'>
+                                                <div className='col-1 p-0 mt-2'>
                                                     <img src={edit16} />
                                                 </div>
-                                                <div className='col-lg-10 ms-2 mt-2'>
+                                                <div className='col-10 ms-2 mt-2'>
                                                     <h4>Smoking Habit</h4>
                                                     <h5>Doesn’t matter</h5>
                                                 </div>
-                                                <div className='col-lg-1 mt-2'>
+                                                <div className='col-1 p-0 mt-2'>
                                                     <img src={edit17} />
                                                 </div>
-                                                <div className='col-lg-10 ms-2 mt-2'>
+                                                <div className='col-10 ms-2 mt-2'>
                                                     <h4>Physical Status</h4>
                                                     <h5>Doesn’t matter</h5>
                                                 </div>
@@ -394,12 +396,13 @@ function Partner() {
 
                             </div>
                         </div>
-                        <div className='col-3'>
-                            <Benifit />
+                        <div className='col-lg-3 col-12 mt-lg-0 mt-5'>
+                            <div className=''>
+                                <Benifit />
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </section>
             <Footer />
         </>

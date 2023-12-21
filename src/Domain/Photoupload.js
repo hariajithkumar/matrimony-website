@@ -59,10 +59,12 @@ function Photoupload() {
             <section className='my-profile pb-3'>
                 <div className='container-90'>
                     <div className='row m-0'>
-                        <div className='col-3'>
-                            <Useraside />
+                        <div className='col-lg-3 col-12'>
+                            <div className='d-lg-block d-none'>
+                                <Useraside />
+                            </div>
                         </div>
-                        <div className='col-6'>
+                        <div className='col-lg-6 col-12'>
                             <div className='section-profiles'>
                                 <div className='profile-photo'>
                                     <img src={editprofile} className='editprofile' />
@@ -95,8 +97,10 @@ function Photoupload() {
                                 <PhotoCrop />
                             </div>
                         </div>
-                        <div className='col-3'>
-                            <Benifit />
+                        <div className='col-lg-3 col-12 mt-lg-0 mt-5'>
+                            <div className=''>
+                                <Benifit />
+                            </div>
                         </div>
                     </div>
                 </div>

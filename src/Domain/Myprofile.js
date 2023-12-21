@@ -88,10 +88,12 @@ function Myprofile() {
       <section className='my-profile pb-3'>
         <div className='container-90'>
           <div className='row m-0'>
-            <div className='col-3'>
-              <Useraside />
+            <div className='col-lg-3'>
+              <div className='d-lg-block d-none'>
+                <Useraside />
+              </div>
             </div>
-            <div className='col-6'>
+            <div className='col-lg-6 col-12'>
               <div className='section-profiles '>
                 <div className='profile-photo'>
                   <img src={addphoto} />
@@ -217,11 +219,11 @@ function Myprofile() {
                 {/* Education details start  */}
                 <div className='profile-item profile-degree p-3'>
                   <div className='row m-0 pb-3'>
-                    <div className='col-lg-8'>
+                    <div className='col-8'>
                       <h1>Education details</h1>
                       <p>Showcase your education qualificationn</p>
                     </div>
-                    <div className='col-lg-4 align-self-center text-end'>
+                    <div className='col-4 align-self-center text-end'>
                       <img src={profiledit} onClick={() => handleEdit('Education')} />
                     </div>
                   </div>
@@ -252,10 +254,10 @@ function Myprofile() {
                     :
                     <>
                       <div className='row m-0 degree-details'>
-                        <div className='col-lg-1'>
+                        <div className='col-1 p-0'>
                           <img src={degree} />
                         </div>
-                        <div className='col-lg-10 ms-2'>
+                        <div className='col-10 ms-2'>
                           <h4>Career detailse</h4>
                           <h5>Give a glimpse of your professional life</h5>
                         </div>
@@ -276,11 +278,11 @@ function Myprofile() {
                 </div>
                 <div className='profile-item profile-degree p-3'>
                   <div className='row m-0 pb-3'>
-                    <div className='col-lg-8'>
+                    <div className='col-8'>
                       <h1>Career detailss</h1>
                       <p>Give a glimpse of your professional life</p>
                     </div>
-                    <div className='col-lg-4 align-self-center text-end'>
+                    <div className='col-4 align-self-center text-end'>
                       <img src={profiledit} onClick={() => handleEdit('Career')} />
                     </div>
                   </div>
@@ -320,10 +322,10 @@ function Myprofile() {
                     :
                     <>
                       <div className='row m-0 degree-details'>
-                        <div className='col-lg-1'>
+                        <div className='col-1 p-0'>
                           <img src={degreemsg} />
                         </div>
-                        <div className='col-lg-10 ms-2'>
+                        <div className='col-10 ms-2'>
                           <h4>Software Developer / Programmer</h4>
                           <h5>Private</h5>
                         </div>
@@ -344,11 +346,11 @@ function Myprofile() {
                 </div>
                 <div className='profile-item profile-degree p-3'>
                   <div className='row m-0 pb-3'>
-                    <div className='col-lg-8'>
+                    <div className='col-8'>
                       <h1>Family details</h1>
                       <p>Introduce your family member, values and background</p>
                     </div>
-                    <div className='col-lg-4 align-self-center text-end'>
+                    <div className='col-4 align-self-center text-end'>
                       <img src={profiledit} onClick={() => handleEdit('Family')} />
                     </div>
                   </div>
@@ -395,16 +397,16 @@ function Myprofile() {
                     :
                     <>
                       <div className='row m-0 degree-details'>
-                        <div className='col-lg-1 mt-2'>
+                        <div className='col-1 p-0 mt-2'>
                           <img src={family1} />
                         </div>
-                        <div className='col-lg-10 ms-2 mt-2'>
+                        <div className='col-10 ms-2 mt-2'>
                           <h4>Joint Family from indiar</h4>
                         </div>
-                        <div className='col-lg-1 mt-2'>
+                        <div className='col-1 p-0 mt-2'>
                           <img src={family2} />
                         </div>
-                        <div className='col-lg-10 ms-2 mt-2'>
+                        <div className='col-10 ms-2 mt-2'>
                           <h4>Father is Not Employed, Mother is a Teacher</h4>
                           <h5 className='sibing'>1 Brother(s)   & 1 Sister(s)  (1 married)</h5>
                         </div>
@@ -426,11 +428,11 @@ function Myprofile() {
                 </div>
                 <div className='profile-item profile-degree p-3'>
                   <div className='row m-0 pb-3'>
-                    <div className='col-lg-8'>
+                    <div className='col-8'>
                       <h1>Contact details</h1>
                       <p>Details that help profiles get in touch with you</p>
                     </div>
-                    <div className='col-lg-4 align-self-center text-end'>
+                    <div className='col-4 align-self-center text-end'>
                       <img src={profiledit} onClick={() => handleEdit('Contact')} />
                     </div>
                   </div>
@@ -461,24 +463,24 @@ function Myprofile() {
                     :
                     <>
                       <div className='row m-0 degree-details'>
-                        <div className='col-lg-1'>
+                        <div className='col-1 p-0'>
                           <img src={contact1} />
                         </div>
-                        <div className='col-lg-10 ms-2'>
+                        <div className='col-10 ms-2'>
                           <h4>thamizha333@gmail.com</h4>
                         </div>
-                        <div className='col-lg-1 mt-2'>
+                        <div className='col-1 p-0 mt-2'>
                           <img src={contact2} />
                         </div>
-                        <div className='col-lg-10 ms-2 mt-2'>
+                        <div className='col-10 ms-2 mt-2'>
                           <h4>+91 97911 06060</h4>
                         </div>
                       </div>
                       <div className='row m-0 degree-details pt-4'>
-                        <div className='col-lg-9  '>
+                        <div className='col-9  '>
                           <h3>Alternate Email, Alternate Mobile No.</h3>
                         </div>
-                        <div className='col-lg-3 text-end'>
+                        <div className='col-3 text-end'>
                           <img src={plus} /><span> ADD</span>
                         </div>
                       </div>
@@ -488,8 +490,10 @@ function Myprofile() {
                 </div>
               </div>
             </div>
-            <div className='col-3'>
-              <Benifit />
+            <div className='col-lg-3 col-12 mt-lg-0 mt-5'>
+              <div className=''>
+                <Benifit />
+              </div>
             </div>
           </div>
         </div>

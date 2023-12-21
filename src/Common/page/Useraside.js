@@ -27,12 +27,12 @@ function Useraside() {
         <div className='user-position'>
             <div className='account-details px-3 pb-2'>
                 <div className='row m-0'>
-                    <div className='col-lg-6 align-self-center'>
+                    <div className='col-xl-6 col-lg-12  align-self-center'>
                         <div class="profile-container">
                             <img src={ajith} alt="Profile Image" class="profile-image" />
                         </div>
                     </div>
-                    <div className='col-lg-6 profile-name align-self-center'>
+                    <div className='col-xl-6 col-lg-12 col-12 profile-name align-self-center'>
                         <h4>Hi Ajith !</h4>
                         <h5>ID : SYM000001</h5>
                         <h6>View Profile</h6>

@@ -163,10 +163,12 @@ function Proofverify() {
             <section className='my-profile pb-3'>
                 <div className='container-90'>
                     <div className='row m-0'>
-                        <div className='col-3'>
-                            <Useraside />
+                        <div className='col-lg-3 col-12'>
+                            <div className='d-lg-block d-none'>
+                                <Useraside />
+                            </div>
                         </div>
-                        <div className='col-6'>
+                        <div className='col-lg-6 col-12'>
                             <div className='section-profiles'>
                                 <div className='profile-photo'>
                                     <img src={editprofile} className='editprofile' />
@@ -220,7 +222,7 @@ function Proofverify() {
                                         </div>
                                         <div className='row m-0 py-3'>
                                             {previewUrls.map((previewUrl, index) => (
-                                                <div className='col-6 mb-2'>
+                                                <div className='col-lg-6 col-md-6 col-sm-6 col-12 mt-lg-0 mt-md-0 mt-sm-0 mt-2 mb-2'>
                                                     <img key={index} src={previewUrl} alt="preview" className='w-100 card-views p-0' />
                                                     <button type="button" className="close position-absolute border-0 bg-none close-btn" onClick={() => deleteitem(index)}>
                                                         <FontAwesomeIcon icon={faClose} />
@@ -235,8 +237,10 @@ function Proofverify() {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-3'>
-                            <Benifit />
+                        <div className='col-lg-3 col-12 mt-lg-0 mt-5'>
+                            <div className=''>
+                                <Benifit />
+                            </div>
                         </div>
                     </div>
                 </div>
