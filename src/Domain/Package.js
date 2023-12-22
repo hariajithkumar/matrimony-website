@@ -10,6 +10,8 @@ import '../Common/css/search.css'
 
 import Check from '../Common/image/Check.png'
 import Topheader from '../Common/page/Topheader';
+import Topmove from '../Common/page/Topmove';
+
 function Search() {
   const { isClass1Show } = useSelector((state) => state.navButton)
   const [key, setKey] = useState('home');
@@ -595,6 +597,7 @@ function Search() {
                     </div>
                 </div>
             </div>
+            <Topmove />
       <Footer />
     </div>
   )

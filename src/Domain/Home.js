@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import signup from '../Common/image/signup.png'
 import connect from '../Common/image/connect.png'
@@ -24,18 +24,46 @@ import privacy from '../Common/image/privacy.png'
 import Check from '../Common/image/Check.png'
 import successstore from '../Common/image/success-store.png'
 import star from '../Common/image/Stars.png'
+
 import Owl from './Owl';
 import Footer from '../Common/page/Footer';
 import Faq from '../Common/page/Faq';
 import Header from '../Common/page/Header';
 import Topheader from '../Common/page/Topheader';
 import Tophome from './Tophome';
+import Topmove from '../Common/page/Topmove';
+
 function Home() {
 
   const { isClass1Show } = useSelector((state) => state.navButton)
+  const [isVisible, setIsVisible] = useState(false);
+
   const dispatch = useDispatch();
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const threshold = 200; // You can adjust this value based on when you want the button to appear
 
+    if (scrollY > threshold) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <>
       <Topheader />
@@ -734,6 +762,7 @@ function Home() {
           </div>
         </div>
       </section >
+      <Topmove />
       <Footer />
     </>
   )

@@ -38,7 +38,7 @@ const Rightnav = ({ isOpen, onClose }) => {
         navigate('/login')
     }
     const Logout = () => {
-        navigate('/')
+        navigate('/login')
     }
     const handleItemClick = (item) => {
         // dispatch(setActiveItem(item))

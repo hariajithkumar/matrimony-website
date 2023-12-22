@@ -139,7 +139,7 @@
 }
 
 .nav-logo {
-    width: 100% !important;
+    width: 65% !important;
 }
 
 .work-card:hover {
@@ -1640,7 +1640,9 @@ footer {
 }
 
 @media (max-width: 768px) {
-
+    .nav-logo {
+        width: 100% !important;
+    }
     /* header section css start  */
     .header-bg-img {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url('../image/header-image.png'), lightgray 0px -281.55px / 100% 166.431% no-repeat;

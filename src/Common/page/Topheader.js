@@ -32,7 +32,7 @@ function Topheader() {
     return (
         <>
             <header className='faq-bg-img position-sticky top-0 sticky-header'>
-                <div className='nav-section b-lg-block d-none'>
+                <div className='nav-section d-lg-block'>
                     <nav class="navbar navbar-expand-lg navbarlist sticky-top">
                         <div class="container-fluid container-95">
                             <div className='navbar-width'>

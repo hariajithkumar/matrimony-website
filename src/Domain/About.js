@@ -16,6 +16,7 @@ import appavailable from '../Common/image/app-available.png'
 import GooglePlay from '../Common/image/GooglePlay.png'
 import AppStore from '../Common/image/AppStore.png'
 import Topheader from '../Common/page/Topheader';
+import Topmove from '../Common/page/Topmove';
 
 function About() {
   const { isClass1Show } = useSelector((state) => state.navButton)
@@ -127,6 +128,7 @@ function About() {
           <button>Enter your email to subscribe</button>
         </div>
       </div>
+      <Topmove />
       <Footer />
     </div>
   )

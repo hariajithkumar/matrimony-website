@@ -93,7 +93,7 @@ function Myprofile() {
                 <Useraside />
               </div>
             </div>
-            <div className='col-lg-6 col-12'>
+            <div className='col-lg-6 col-12 px-lg-3 px-md-2 px-1'>
               <div className='section-profiles '>
                 <div className='profile-photo'>
                   <img src={addphoto} />
@@ -110,11 +110,11 @@ function Myprofile() {
                 {/* Basic Details start */}
                 <div className='profile-item p-3'>
                   <div className='row m-0 pb-3'>
-                    <div className='col-lg-8'>
+                    <div className='col-9'>
                       <h1>Basic Details</h1>
                       <p>Brief outline of personal information</p>
                     </div>
-                    <div className='col-lg-4 align-self-center text-end'>
+                    <div className='col-3 align-self-center text-end'>
                       <img src={profiledit} onClick={() => handleEdit('Basic')} />
                     </div>
                   </div>
@@ -263,10 +263,10 @@ function Myprofile() {
                         </div>
                       </div>
                       <div className='row m-0 degree-details pt-4'>
-                        <div className='col-lg-9  '>
+                        <div className='col-9  '>
                           <h3>School Name, UG College</h3>
                         </div>
-                        <div className='col-lg-3 text-end'>
+                        <div className='col-3 text-end'>
                           <img src={plus} /><span> ADD</span>
                         </div>
                         <div className='col-12 mt-3'>
@@ -331,10 +331,10 @@ function Myprofile() {
                         </div>
                       </div>
                       <div className='row m-0 degree-details pt-4'>
-                        <div className='col-lg-9  '>
+                        <div className='col-9  '>
                           <h3>Organisation Name, Thoughts on settling abroad</h3>
                         </div>
-                        <div className='col-lg-3 text-end'>
+                        <div className='col-3 text-end'>
                           <img src={plus} /><span> ADD</span>
                         </div>
                         <div className='col-12 mt-3'>
@@ -412,10 +412,10 @@ function Myprofile() {
                         </div>
                       </div>
                       <div className='row m-0 degree-details pt-4'>
-                        <div className='col-lg-9  '>
+                        <div className='col-9  '>
                           <h3>Family Status, Family Value, Gothra, Living with parents?</h3>
                         </div>
-                        <div className='col-lg-3 text-end'>
+                        <div className='col-3 text-end'>
                           <img src={plus} /><span> ADD</span>
                         </div>
                         <div className='col-12 mt-3'>

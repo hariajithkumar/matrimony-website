@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/topheader.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBox, faContactCard, faHome, faMoneyBill, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import userprofile from '../image/userprofile.png'
 
@@ -66,7 +66,7 @@ function Profileheader() {
         setIsOpen(!isOpen);
     };
     const Logout = () => {
-        navigate('/')
+        navigate('/login')
     }
     return (
         <>
@@ -151,6 +151,38 @@ function Profileheader() {
 
                 </div>
             </header>
+            {/* <div className='d-lg-none d-block mobile-nav'> */}
+            <div className={`${isOpen ? 'mobile-nav d-lg-none d-block' : 'res-mobile d-lg-none d-block'} `}>
+                <div className="">
+                    <ul class="nav">
+                        <li className='nav-item'>
+                            <NavLink exact to={{ pathname: '/', state: { isClass1Show } }} className={`${pathname === '/' || pathname === '/Partner' || pathname === '/Photoupload' || pathname === '/Proofverify' ? 'active' : 'custom-active'} text-decoration-none`}>
+                                <FontAwesomeIcon icon={faHome} />
+                            </NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink exact to="/search" className={`${pathname === '/search' ? 'active' : 'custom-active'} text-decoration-none`}>
+                                <FontAwesomeIcon icon={faSearch} />
+                            </NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink exact to="/package" className={`${pathname === '/package' ? 'active' : 'custom-active'} text-decoration-none`}>
+                                <FontAwesomeIcon icon={faBox} />
+                            </NavLink>
+                        </li>
+                        {/* <li>
+                            <NavLink exact to="/about" className={`${pathname === '/about' ? 'active' : 'custom-active'} text-decoration-none`}>
+                                <FontAwesomeIcon icon={faBars} />
+                            </NavLink>
+                        </li> */}
+                        <li>
+                            <NavLink exact to="/contact" className={`${pathname === '/contact' ? 'active' : 'custom-active'} text-decoration-none`}>
+                                <FontAwesomeIcon icon={faContactCard} />
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </>
     )
 }

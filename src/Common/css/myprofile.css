@@ -17,7 +17,7 @@
 
 .my-profile {
     background: #F1F1F1;
-    padding-top: 3%;
+    padding-top: 6%;
 }
 
 .account-details {
@@ -182,4 +182,40 @@
     font-size: 16px;
     font-weight: 500;
     line-height: normal;
+}
+
+
+.mobile-nav{
+    width: 90%;
+    margin: 0 auto !important;
+    padding: 10px 5px;
+    border: none;
+    z-index: 100;
+    border-radius: 10px;
+    position: sticky;
+    top: 88%;
+    background: #e8dddd;
+}
+.res-mobile{
+    width: 90%;
+    margin: 0 auto !important;
+    padding: 10px 5px;
+    border: none;
+    z-index: 99;
+    border-radius: 10px;
+    position: sticky;
+    top: 88%;
+    background: #e8dddd;
+}
+.mobile-nav ul li{
+    display: inline-block !important;
+    font-size: 20px;
+    padding: 10px 5px;
+    margin: 0px auto;
+}
+.res-mobile ul li{
+    display: inline-block !important;
+    font-size: 20px;
+    padding: 10px 5px;
+    margin: 0px auto;
 }

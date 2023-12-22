@@ -12,6 +12,7 @@ import home from '../Common/image/home.png'
 import '../Common/css/style.css'
 import '../Common/css/contact.css'
 import Topheader from '../Common/page/Topheader';
+import Topmove from '../Common/page/Topmove';
 
 function Contact() {
     const { isClass1Show } = useSelector((state) => state.navButton)
@@ -81,6 +82,7 @@ function Contact() {
                     </div>
                 </div>
             </div>
+            <Topmove />
             <Footer />
         </div>
     )

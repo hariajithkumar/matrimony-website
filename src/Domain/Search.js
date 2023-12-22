@@ -14,6 +14,8 @@ import Profileheader from '../Common/page/Profileheader';
 import Tophome from './Tophome';
 import Topheader from '../Common/page/Topheader';
 import ResponsiveNav from './ResponsiveNav';
+import Topmove from '../Common/page/Topmove';
+
 function Search() {
   const { isClass1Show } = useSelector((state) => state.navButton)
   const [key, setKey] = useState('home');
@@ -553,6 +555,7 @@ function Search() {
           </div>
         </div>
       </div>
+      <Topmove />
       <Footer />
     </div>
   )

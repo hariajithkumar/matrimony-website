@@ -5,6 +5,8 @@ import Footer from '../Common/page/Footer'
 import Faq from '../Common/page/Faq'
 import '../Common/css/style.css'
 import Topheader from '../Common/page/Topheader';
+import Topmove from '../Common/page/Topmove';
+
 function Faqpage() {
     const { isClass1Show } = useSelector((state) => state.navButton)
     const dispatch = useDispatch();
@@ -21,6 +23,7 @@ function Faqpage() {
             <div className="container-80">
                 <Faq />
             </div>
+            <Topmove />
             <Footer />
         </div>
     )

@@ -80,7 +80,7 @@ function Partner() {
                                 <Useraside />
                             </div>
                         </div>
-                        <div className='col-lg-6 col-12'>
+                        <div className='col-lg-6 col-12 px-lg-3 px-md-2 px-1'>
                             <div className='section-profile bg-white pb-3 rounded-4'>
                                 <div className='profile-photo'>
                                     <img src={addphoto} />
