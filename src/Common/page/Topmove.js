@@ -37,7 +37,7 @@ function Topmove() {
     return (
         <div>
             {isVisible && (
-                <button onClick={scrollToTop} style={{ position: 'fixed', bottom: '20px', right: '25px' }} className='top-btn'>
+                <button onClick={scrollToTop} style={{ position: 'fixed', bottom: '20px', right: '30px' }} className='top-btn'>
                     <FontAwesomeIcon icon={faArrowCircleUp} style={{ color: '#FFF' }} />
                 </button>
             )}

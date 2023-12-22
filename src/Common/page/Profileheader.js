@@ -14,6 +14,7 @@ import userprofile from '../image/userprofile.png'
 import '../css/myprofile.css'
 
 import Rightnav from './Rightnav';
+import Topmove from './Topmove';
 
 function Profileheader() {
 
@@ -170,16 +171,16 @@ function Profileheader() {
                                 <FontAwesomeIcon icon={faBox} />
                             </NavLink>
                         </li>
-                        {/* <li>
-                            <NavLink exact to="/about" className={`${pathname === '/about' ? 'active' : 'custom-active'} text-decoration-none`}>
-                                <FontAwesomeIcon icon={faBars} />
-                            </NavLink>
-                        </li> */}
                         <li>
                             <NavLink exact to="/contact" className={`${pathname === '/contact' ? 'active' : 'custom-active'} text-decoration-none`}>
                                 <FontAwesomeIcon icon={faContactCard} />
                             </NavLink>
                         </li>
+                        {/* <li>
+                            <NavLink exact to="/about" className={`${pathname === '/about' ? 'active' : 'custom-active'} text-decoration-none`}>
+                                <Topmove />
+                            </NavLink>
+                        </li> */}
                     </ul>
                 </div>
             </div>
