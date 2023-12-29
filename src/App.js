@@ -20,6 +20,8 @@ import Proofverify from './Domain/Proofverify';
 import Imagecrop from './Domain/Imagecrop';
 import Finalcrop from './Domain/FinalCrop';
 import Resizeimage from './Domain/Resizeimage';
+import OwlCarouselComponent from './Domain/OwlCarouselComponent';
+import SimpleSlider from './Domain/SimpleSlider ';
 function App() {
   useEffect(() => {
     const handleScroll = () => {
@@ -65,6 +67,8 @@ function App() {
           {/* <Route path='Imagecrop' element={<Imagecrop />} /> */}
           <Route path='Finalcrop' element={<Finalcrop />} />
           <Route path='resize' element={<Resizeimage />} />
+          <Route path='owl' element={<OwlCarouselComponent />} />
+          <Route path='SimpleSlider' element={<SimpleSlider />} />
         </>
       </Routes>
     </BrowserRouter>

@@ -371,8 +371,8 @@ header ul li:hover {
 
 .card-border {
     border: none !important;
-    background: lightgray 50% / cover no-repeat;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    /* background: lightgray 50% / cover no-repeat; */
+    /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
 }
 
 .card-image1 {
@@ -408,10 +408,10 @@ header ul li:hover {
 }
 
 .card-content {
-    margin-top: 100%;
+    /* margin-top: 100%;
     border-radius: 0px 0px 24px 24px;
     border: 0.5px solid #EFEFEF;
-    background: #FFF;
+    background: #FFF; */
 }
 
 .profile-position {
