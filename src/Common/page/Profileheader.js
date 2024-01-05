@@ -18,7 +18,7 @@ import Topmove from './Topmove';
 
 function Profileheader() {
 
-    const { isClass1Show } = useSelector((state) => state.navButton)
+    const { isClass1Show } = useSelector((state) => state.matrimony)
     const [isDropdownVisible, setDropdownVisible] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isRightNavOpen, setIsRightNavOpen] = useState(false);

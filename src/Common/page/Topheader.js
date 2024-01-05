@@ -7,7 +7,7 @@ import { setClass1Hide } from '../../Redux/CreateSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/topheader.css'
 function Topheader() {
-    const { isClass1Show } = useSelector((state) => state.navButton)
+    const { isClass1Show } = useSelector((state) => state.matrimony)
     const [isRightNavOpen, setIsRightNavOpen] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();

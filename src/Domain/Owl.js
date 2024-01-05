@@ -30,7 +30,7 @@ const Owl = () => {
         },
     };
 
-    const { profileDetails } = useSelector((state) => state.navButton);
+    const { profileDetails } = useSelector((state) => state.matrimony);
     const dispatch = useDispatch()
     const profileData = async () => {
         const { data } = await axios.get('https://fakestoreapi.com/products');

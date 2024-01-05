@@ -3,6 +3,6 @@ import CreateSlice from "../../Redux/CreateSlice"
 
 export const store = configureStore ({
     reducer: {
-        navButton : CreateSlice
+        matrimony : CreateSlice
     },
 })

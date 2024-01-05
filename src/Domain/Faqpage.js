@@ -8,7 +8,7 @@ import Topheader from '../Common/page/Topheader';
 import Topmove from '../Common/page/Topmove';
 
 function Faqpage() {
-    const { isClass1Show } = useSelector((state) => state.navButton)
+    const { isClass1Show } = useSelector((state) => state.matrimony)
     const dispatch = useDispatch();
     return (
         <div className='faq'>

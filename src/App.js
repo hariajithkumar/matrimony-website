@@ -22,6 +22,8 @@ import Finalcrop from './Domain/FinalCrop';
 import Resizeimage from './Domain/Resizeimage';
 import OwlCarouselComponent from './Domain/OwlCarouselComponent';
 import SimpleSlider from './Domain/SimpleSlider ';
+import Searchprofile from './Domain/Searchprofile';
+import Profileview from './Domain/Profileview';
 function App() {
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +71,8 @@ function App() {
           <Route path='resize' element={<Resizeimage />} />
           <Route path='owl' element={<OwlCarouselComponent />} />
           <Route path='SimpleSlider' element={<SimpleSlider />} />
+          <Route path='searchprofile' element={<Searchprofile />} />
+          <Route path='profileview' element={<Profileview />} />
         </>
       </Routes>
     </BrowserRouter>

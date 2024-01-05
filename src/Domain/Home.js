@@ -36,7 +36,7 @@ import SimpleSlider from './SimpleSlider ';
 
 function Home() {
 
-  const { isClass1Show } = useSelector((state) => state.navButton)
+  const { isClass1Show } = useSelector((state) => state.matrimony)
   const [isVisible, setIsVisible] = useState(false);
 
   const dispatch = useDispatch();

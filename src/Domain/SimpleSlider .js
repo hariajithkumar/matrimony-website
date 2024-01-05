@@ -10,7 +10,7 @@ import profile8 from '../Common/image/profile-8.png';
 import profile9 from '../Common/image/profile-9.png';
 import profile10 from '../Common/image/profile-10.png';
 
-// import '../Common/css/simpleslider.css'
+import '../Common/css/simpleslider.css'
 
 
 const SimpleSlider = () => {

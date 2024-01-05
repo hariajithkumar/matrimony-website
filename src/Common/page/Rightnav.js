@@ -15,7 +15,7 @@ import rightinactive from '../image/right-inactive.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 const Rightnav = ({ isOpen, onClose }) => {
-    const { isClass1Show } = useSelector((state) => state.navButton)
+    const { isClass1Show } = useSelector((state) => state.matrimony)
     const [isDropdownVisible, setDropdownVisible] = useState(false);
     const [isRightNavOpen, setIsRightNavOpen] = useState(false);
 

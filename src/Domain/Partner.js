@@ -68,7 +68,6 @@ function Partner() {
             setEditLifestyle(0)
         }
     }
-
     return (
         <>
             <Profileheader />

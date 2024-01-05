@@ -5,7 +5,7 @@ import Logo from '../image/Sahyatri-Matrimony-Logo.png';
 import { setClass1Hide } from '../../Redux/CreateSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function Header() {
-  const { isClass1Show } = useSelector((state) => state.navButton)
+  const { isClass1Show } = useSelector((state) => state.matrimony)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();

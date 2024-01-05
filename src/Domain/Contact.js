@@ -15,7 +15,7 @@ import Topheader from '../Common/page/Topheader';
 import Topmove from '../Common/page/Topmove';
 
 function Contact() {
-    const { isClass1Show } = useSelector((state) => state.navButton)
+    const { isClass1Show } = useSelector((state) => state.matrimony)
     const [key, setKey] = useState('home');
     const dispatch = useDispatch();
     return (

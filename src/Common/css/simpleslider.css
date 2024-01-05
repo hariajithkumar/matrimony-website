@@ -157,3 +157,43 @@
     background: #f6f6f6;
   }
 }  */
+
+
+
+
+
+
+/* findprofile css start  */
+
+.view-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  border: 1px solid var(--style-2, #2BB673);
+  color: #00425E;
+}
+.view-btn:hover{
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  /* border: 1px solid var(--style-2, #2BB673); */
+  background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+  color: #FFF;
+}
+.action-btn{
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  border: 1px solid var(--style-2, #2BB673);
+  color: #00425E;
+}
+.action-btn:hover{
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  border: 1px solid var(--style-2, #2BB673);
+  background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+  color: #FFF;
+}

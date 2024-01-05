@@ -2,10 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 export const CrateSlice = createSlice({
-    name : "navButton",
+    name : "matrimony",
     initialState:{
         isClass1Show:false,
-        profileDetails:''
+        profileDetails:'',
+        singleProfile:[]
     },
 
     reducers : {
@@ -14,10 +15,13 @@ export const CrateSlice = createSlice({
         },
         setprofileDetails:(state,action) => {
             state.profileDetails = action.payload
+        },
+        setsingleProfile:(state,action) => {
+            state.singleProfile = action.payload
         }
     }
 }) 
 
-export const {setClass1Hide, setprofileDetails} = CrateSlice.actions
+export const {setClass1Hide, setprofileDetails,setsingleProfile} = CrateSlice.actions
 export default CrateSlice.reducer
 

@@ -30,7 +30,7 @@ import Faq from '../Common/page/Faq';
 import Header from '../Common/page/Header';
 function Home() {
 
-  const { isClass1Show } = useSelector((state) => state.navButton)
+  const { isClass1Show } = useSelector((state) => state.matrimony)
   const dispatch = useDispatch();
 
 
