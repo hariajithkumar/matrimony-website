@@ -127,8 +127,25 @@ const Matchesprofile = () => {
                 </div>
                 <div className='row m-0'>
                     {isMatches.length == 0 ?
-
-                        <></>
+                        <>
+                            {currentItems.map((item, index) => (  // Added index to ensure unique keys
+                                    
+                                        <div className='col-4 my-3' key={item.id}>
+                                            <div className="card border-0 px-2">
+                                                <img src={item.photo} className="w-100 profile-img" alt="..." />
+                                                <div className="card-body card-content w-100">
+                                                    <h5 className="">{item.name}</h5>
+                                                    <h6 className="">Age - {item.age}</h6>
+                                                    <h6 className="">Education - {item.education}</h6>
+                                                    <h6 className="">{item.place}</h6>
+                                                    <div className='text-end'>
+                                                        <button type='button' className='view-btn' onClick={() => viewprofile(item)}>View</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            ))}
+                        </>
                         :
                         <>
                             {currentItems.map((item, index) => (  // Added index to ensure unique keys
@@ -161,11 +178,11 @@ const Matchesprofile = () => {
                     }
 
                 </div>
-                {isMatches.length == 0 ?
+                {/* {isMatches.length == 0 ?
                     <></>
 
 
-                    :
+                    : */}
                     <>
                         <div className='py-5 text-end'>
                             <button
@@ -188,7 +205,7 @@ const Matchesprofile = () => {
                         </div>
                     </>
 
-                }
+                {/* } */}
 
             </div>
         </div >
