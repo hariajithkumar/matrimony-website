@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Topheader from '../Common/page/Topheader'
 import Footer from '../Common/page/Footer'
 import Findprofile from './Findprofile'
 
-function searchprofile() {
+function Searchprofile() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+    
     return (
         <div>
             <Topheader />
@@ -19,4 +24,4 @@ function searchprofile() {
     )
 }
 
-export default searchprofile
+export default Searchprofile

@@ -24,6 +24,7 @@ import OwlCarouselComponent from './Domain/OwlCarouselComponent';
 import SimpleSlider from './Domain/SimpleSlider ';
 import Searchprofile from './Domain/Searchprofile';
 import Profileview from './Domain/Profileview';
+import Matches from './Domain/Matches';
 function App() {
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +48,7 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+ 
   return (
     <BrowserRouter>
       <Routes>
@@ -73,6 +74,7 @@ function App() {
           <Route path='SimpleSlider' element={<SimpleSlider />} />
           <Route path='searchprofile' element={<Searchprofile />} />
           <Route path='profileview' element={<Profileview />} />
+          <Route path='matches' element={<Matches />} />
         </>
       </Routes>
     </BrowserRouter>

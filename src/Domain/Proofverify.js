@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import imageCompression from "browser-image-compression";
 
 
@@ -14,6 +14,7 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 import upload from '../Common/image/upload.png'
 import editprofile from '../Common/image/white-edit.png'
 import verify from '../Common/image/verifydetails.png'
+import cardproof from '../Common/image/verify-card.jpg'
 import ImageCompressor from './ImageCompressor';
 // import ImageUploader from './ImageUploader';
 // compress fn code 
@@ -55,10 +56,6 @@ const imageSize = (file) => {
 
     return promise;
 };
-
-
-
-
 
 
 function Proofverify() {
@@ -156,7 +153,11 @@ function Proofverify() {
         const updatedFiles = previewUrls.filter((file, index) => index !== idToRemove);
         setPreviewUrls(updatedFiles);
     };
-    console.log(previewUrls)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
     return (
         <>
             <Profileheader />
@@ -170,17 +171,17 @@ function Proofverify() {
                         </div>
                         <div className='col-lg-6 col-12'>
                             <div className='section-profiles'>
-                                <div className='profile-photo'>
+                                {/* <div className='profile-photo'>
                                     <img src={editprofile} className='editprofile' />
                                     <div className='profile-id'>
                                         <h1>Tamil Selvan</h1>
                                         <p>ID : SYM000001</p>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className='profile-verify'>
                                     <div className='proof-verify'>
                                         <h2><b>Upload Your ID Proof</b></h2>
-                                        <p>Upload documents to verify your identity with information such as your name & date of birth.</p>
+                                        <p>Upload documents to verify your identity with information such as your ID Proof.</p>
                                     </div>
                                 </div>
                                 <div className='m-4'>
@@ -200,10 +201,16 @@ function Proofverify() {
                                                     <>
                                                         {previewUrls.length == 2 ? <></> :
                                                             <>
-                                                                <input type="file" id="upload" onChange={(e) => uploadImage(e.target.files)} style={{ display: 'none' }} />
-                                                                <label htmlFor="upload" className="custom-file-upload">
-                                                                    <img src={upload} alt="upload" className="w-100 h-100" />
-                                                                </label>
+                                                                <div className='row m-0'>
+                                                                    <div className='col-6'>
+                                                                        <input type="file" id="upload" onChange={(e) => uploadImage(e.target.files)} style={{ display: 'none' }} />
+                                                                        <label htmlFor="upload" className="custom-file-upload">
+                                                                            <img src={upload} alt="upload" className="w-100 h-100" />
+                                                                        </label>
+                                                                    </div>
+
+                                                                </div>
+
                                                             </>
                                                         }
 
@@ -217,10 +224,50 @@ function Proofverify() {
                                                 {/* <ImageCompressor /> */}
                                             </div>
                                             <div className='col-12'>
-                                                {selected == 'Voter' || selected == 'Aadhar' || selected == 'License' ? <><div className='proof-verify'><h2><b>Upload Front side and Back side image</b></h2></div></> : <></>}
+                                                {selected == 'Voter' || selected == 'Aadhar' || selected == 'License' ?
+                                                    <>
+                                                        <div className='proof-verify mt-3'>
+                                                            <div className='row m-0'>
+                                                                <div className='col-lg-6 col-md-6 col-sm-6 col-12 mt-lg-0 mt-md-0 mt-sm-0 mt-2 mb-2'>
+                                                                    <div class="rounded-3" >
+                                                                        <img src={previewUrls == "" ? cardproof : previewUrls[0]} className='w-100 card-views p-0' />
+                                                                        {previewUrls == "" ? "" :
+                                                                            <>
+                                                                                <button type="button" className="close position-absolute border-0 bg-none close-btn" onClick={() => deleteitem(0)}>
+                                                                                    <FontAwesomeIcon icon={faClose} />
+                                                                                </button>
+                                                                            </>
+                                                                        }
+
+                                                                        <div>
+                                                                            <h5 className='py-2 text-center'>{selected} Front View</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className='col-lg-6 col-md-6 col-sm-6 col-12 mt-lg-0 mt-md-0 mt-sm-0 mt-2 mb-2'>
+                                                                    <div class=" rounded-3" >
+                                                                        <img src={previewUrls.length == 2 ? previewUrls[1] : cardproof} className='w-100 card-views p-0' />
+                                                                        {previewUrls.length == 2 ? 
+                                                                            <>
+                                                                                <button type="button" className="close position-absolute  border-0 bg-none close-btn" onClick={() => deleteitem(1)}>
+                                                                                    <FontAwesomeIcon icon={faClose} />
+                                                                                </button>
+                                                                            </> : ""
+                                                                        }
+                                                                        <div>
+                                                                            <h5 className='py-2 text-center'>{selected} Back View</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <></>}
                                             </div>
                                         </div>
-                                        <div className='row m-0 py-3'>
+                                        {/* <div className='row m-0 py-3'>
                                             {previewUrls.map((previewUrl, index) => (
                                                 <div className='col-lg-6 col-md-6 col-sm-6 col-12 mt-lg-0 mt-md-0 mt-sm-0 mt-2 mb-2'>
                                                     <img key={index} src={previewUrl} alt="preview" className='w-100 card-views p-0' />
@@ -229,7 +276,7 @@ function Proofverify() {
                                                     </button>
                                                 </div>
                                             ))}
-                                        </div>
+                                        </div> */}
                                         <div className='proof-verified mt-4'>
                                             {previewUrls.length > 1 ? <><img src={verify} /><span className='mx-2'>Verified</span><div className='text-center save-btn'><button type='button' onClick={() => proofupdate()}>Upload</button></div></> : ""}
                                         </div>

@@ -150,6 +150,14 @@
     -webkit-text-fill-color: transparent;
 }
 
+
+
+/* findprofile css start  */
+/* .find-profile .slick-cloned{
+    display: none !important;
+} */
+
+
 @media screen and (max-width: 992px) {
     .section-search .header-content h2 {
         color: #FFF;

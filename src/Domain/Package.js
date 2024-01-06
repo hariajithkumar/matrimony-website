@@ -16,7 +16,9 @@ function Search() {
   const { isClass1Show } = useSelector((state) => state.matrimony)
   const [key, setKey] = useState('home');
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className='section-search'>
       <Topheader />

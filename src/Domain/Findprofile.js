@@ -10,7 +10,7 @@ import profile8 from '../Common/image/profile-8.png';
 import profile9 from '../Common/image/profile-9.png';
 import profile10 from '../Common/image/profile-10.png';
 import { useNavigate } from 'react-router-dom';
-import { setsingleProfile } from '../Redux/CreateSlice';
+import { setCurrentPage, setsingleProfile } from '../Redux/CreateSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // import '../Common/css/Findprofile.css'
 
-const itemsPerPage = 5;
+const itemsPerPage = 20;
 
 const data = [
     { id: 1, photo: profile5, name: 'Joaquín Díaz', age: 24, education: 'B.E', place: 'chennai' },
@@ -31,14 +31,25 @@ const data = [
     { id: 8, photo: profile6, name: 'Mohammed Hassa', age: 25, education: 'B.E', place: 'kerala' },
     { id: 9, photo: profile7, name: 'Yassin Bankole', age: 26, education: 'B.E', place: 'chennai' },
     { id: 10, photo: profile8, name: 'Joaquín Díaz', age: 28, education: 'B.E', place: 'chennai' },
-    // ... more items
+    { id: 11, photo: profile7, name: 'Yassin Bankole', age: 26, education: 'B.E', place: 'chennai' },
+    { id: 12, photo: profile8, name: 'Joaquín Díaz', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 13, photo: profile7, name: 'Joaquín Díaz', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 14, photo: profile8, name: 'Joaquín Díaz', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 15, photo: profile10, name: 'Yassin Bankole', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 16, photo: profile10, name: 'Yassin Bankole', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 17, photo: profile7, name: 'Yassin Bankole', age: 26, education: 'B.E', place: 'chennai' },
+    { id: 18, photo: profile8, name: 'Joaquín Díaz', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 19, photo: profile7, name: 'Joaquín Díaz', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 20, photo: profile8, name: 'Joaquín Díaz', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 21, photo: profile10, name: 'Yassin Bankole', age: 28, education: 'B.E', place: 'chennai' },
+    { id: 22, photo: profile5, name: 'Yassin Bankole', age: 28, education: 'B.E', place: 'chennai' },
 ];
 const Findprofile = () => {
-    const { singleProfile } = useSelector((state) => state.matrimony)
-    const [currentPage, setCurrentPage] = useState(1);
+    const { singleProfile,currentPage } = useSelector((state) => state.matrimony)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -47,23 +58,25 @@ const Findprofile = () => {
     const totalPages = Math.ceil(data.length / itemsPerPage);
 
     const handlePageChange = (newPage) => {
-        setCurrentPage(newPage);
-    };
-    console.log(currentPage)
+            dispatch(setCurrentPage(newPage));
+    }
     const viewprofile = (items) => {
         dispatch(setsingleProfile([items]))
+        localStorage.setItem('singleProfile', JSON.stringify(items));
     }
-    const profileviews = ()=>{
+    const profileviews = () => {
         navigate('/profileview')
     }
     if (singleProfile.length == 1) {
         profileviews()
+        dispatch(setsingleProfile([]))
     }
 
     const settings = {
         // dots: true,
         infinite: true,
         speed: 500,
+        loop: true,
         slidesToShow: 5,
         slidesToScroll: 1,
         // autoplay:true,
@@ -100,49 +113,46 @@ const Findprofile = () => {
                     slidesToScroll: 1,
                 },
             },
-            //   {
-            //     breakpoint: 425,
-            //     settings: {
-            //       slidesToShow: 1,
-            //       slidesToScroll: 1,
-            //     },
-            //   },
         ],
     };
 
     // console.log(singleProfile)
     return (
-        <div className='container-90 owl-theme mt-5'>
+        <div className='container-90 owl-theme mt-5 find-profile'>
             <div>
-                <Slider {...settings}>
-                    {currentItems.map((item) => (
-                        <div class="card border-0 px-2">
-                            <img src={item.photo} className="w-100 profile-img" alt="..." />
-                            <div class="card-body card-content w-100">
-                                <h5 className="">{item.name}</h5>
-                                <h6 className="">Age - {item.age}</h6>
-                                <h6 className="">Education - {item.education}</h6>
-                                <h6 className="">{item.place}</h6>
-                                <div className='text-end'>
-                                    <button className='view-btn' onClick={() => viewprofile(item)}>View</button>
+                <div className='row m-0'>
+                    {/* <Slider {...settings}> */}
+                    {currentItems.map((item, index) => (  // Added index to ensure unique keys
+                        <div className='col-3 mb-3' key={item.id}>
+                            <div className="card border-0 px-2">
+                                <img src={item.photo} className="w-100 profile-img" alt="..." />
+                                <div className="card-body card-content w-100">
+                                    <h5 className="">{item.name}</h5>
+                                    <h6 className="">Age - {item.age}</h6>
+                                    <h6 className="">Education - {item.education}</h6>
+                                    <h6 className="">{item.place}</h6>
+                                    <div className='text-end'>
+                                        <button type='button' className='view-btn' onClick={() => viewprofile(item)}>View</button>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     ))}
-                </Slider>
+                    {/* </Slider> */}
+                </div>
+
                 <div className='py-5 text-end'>
-                    <button
+                <button
+                        type='button'
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
                         className='action-btn'
                     >
                         Previous
                     </button>
-
                     <span> Page {currentPage} of {totalPages} </span>
-
                     <button
+                        type='button'
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
                         className='action-btn'
@@ -151,7 +161,7 @@ const Findprofile = () => {
                     </button>
                 </div>
             </div>
-        </div>
+        </div >
 
     );
 };

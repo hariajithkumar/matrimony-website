@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Profileheader from '../Common/page/Profileheader'
 import Footer from '../Common/page/Footer'
 import Useraside from '../Common/page/Useraside'
@@ -53,6 +53,9 @@ function Photoupload() {
         alert('Photo update succssfully.')
         setPreviewUrls([])
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     return (
         <>
             <Profileheader />

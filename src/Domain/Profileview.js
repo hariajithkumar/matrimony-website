@@ -24,12 +24,20 @@ import degree from '../Common/image/degree.png'
 import degreemsg from '../Common/image/degree-msg.png'
 import Useraside from '../Common/page/Useraside';
 import { setsingleProfile } from '../Redux/CreateSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 function Profileview() {
-    const { singleProfile } = useSelector((state) => state.matrimony)
+    const { singleProfile,currentPage } = useSelector((state) => state.matrimony)
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
 
-    const dispatch = useDispatch();
+    const storedArray = JSON.parse(localStorage.getItem('singleProfile'));
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+    
     return (
         <div>
             <Topheader />
@@ -39,7 +47,7 @@ function Profileview() {
                         <div className='col-lg-3 col-12 px-lg-3 px-md-2 px-1 '>
                             <div className='position-section'>
                                 <div className='section-profile bg-white p-3 rounded-4'>
-                                    <img src={singleProfile[0].photo} className='rounded-3 w-100' />
+                                    <img src={storedArray.photo} className='rounded-3 w-100' />
                                 </div>
                                 <div className='profile-verify'>
                                     <div className='verify '>
@@ -52,7 +60,7 @@ function Profileview() {
                             <div className='section-profile bg-white pb-3 rounded-4'>
                                 <div className='row m-0'>
                                     {/* <div className='col-12 text-center py-2'>
-                                        <img src={singleProfile[0].photo} className='rounded-3'/>
+                                        <img src={storedArray.photo} className='rounded-3'/>
                                     </div> */}
                                 </div>
                                 <div className='profile-verify profile-item'>
@@ -62,11 +70,11 @@ function Profileview() {
                                         </div>
                                     </div>
                                     <div className='verify'>
-                                        <h2>Name - {singleProfile[0].name}</h2>
-                                        <h2>Age - {singleProfile[0].age}</h2>
-                                        <h2>Education - {singleProfile[0].education}</h2>
-                                        <h2>Place - {singleProfile[0].place}</h2>
-                                        <h2>ID - {singleProfile[0].id}</h2>
+                                        <h2>Name - {storedArray.name}</h2>
+                                        <h2>Age - {storedArray.age}</h2>
+                                        <h2>Education - {storedArray.education}</h2>
+                                        <h2>Place - {storedArray.place}</h2>
+                                        <h2>ID - {storedArray.id}</h2>
                                     </div>
                                 </div>
                                 <div className='profile-item p-3'>

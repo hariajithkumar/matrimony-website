@@ -6,7 +6,9 @@ export const CrateSlice = createSlice({
     initialState:{
         isClass1Show:false,
         profileDetails:'',
-        singleProfile:[]
+        singleProfile:[],
+        currentPage:1,
+        isMatches:''
     },
 
     reducers : {
@@ -18,10 +20,17 @@ export const CrateSlice = createSlice({
         },
         setsingleProfile:(state,action) => {
             state.singleProfile = action.payload
+        },
+        setCurrentPage:(state,action) => {
+            state.currentPage = action.payload
+        },
+        setIsMatches:(state,action) => {
+            state.isMatches = action.payload
         }
+        
     }
 }) 
 
-export const {setClass1Hide, setprofileDetails,setsingleProfile} = CrateSlice.actions
+export const {setClass1Hide, setprofileDetails,setsingleProfile,setCurrentPage,setIsMatches} = CrateSlice.actions
 export default CrateSlice.reducer
 

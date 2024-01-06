@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../Common/css/login.css'
 import Topheader from '../Common/page/Topheader';
 import logo from '../Common/image/Logo-white.png'
@@ -12,6 +12,9 @@ function Login() {
     const login = () => {
         navigate('/Myprofile')
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     return (
         <div>
             <Topheader />

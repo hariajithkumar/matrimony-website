@@ -46,6 +46,10 @@ function About() {
   //     window.removeEventListener('scroll', handleScroll);
   //   };
   // }, []);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className='section-about' style={{ background: '#FBFBFB' }}>

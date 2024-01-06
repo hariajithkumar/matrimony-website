@@ -50,6 +50,9 @@ function Search() {
   const search = () => {
     navigate('/searchprofile')
   }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className='section-search'>
@@ -140,76 +143,60 @@ function Search() {
                               <div className='row m-0'>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>I’m Looking for a</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-3 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Height from</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-3 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Height to</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-3 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Age from (yrs)</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-3 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Age to (yrs)</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <hr />
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Marital Status</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Religion *</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Caste *</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -226,30 +213,24 @@ function Search() {
                               <div className='row'>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Education Category</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Employed In</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Job Category</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -266,21 +247,17 @@ function Search() {
                               <div className='row'>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>Country</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                                 <div className='col-lg-6 col-md-6 col-sm-12 py-3'>
                                   <label className='py-2 label-font'>State</label>
-                                  <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                  </select>
+                                  <Select
+                                    options={age}
+                                    isSearchable
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -289,7 +266,7 @@ function Search() {
                       </div>
                     </div>
                     <div className='text-center'>
-                      <button className='search-btn'>SEARCH</button>
+                      <button type='button' className='search-btn' onClick={search}>Search</button>
                     </div>
                   </div>
                 </div>
@@ -302,7 +279,7 @@ function Search() {
                       <label for="exampleInputEmail1" class="form-label">Search ID *</label>
                       <input type="text" className="form-control w-25 mx-auto" />
                       <div className='text-center'>
-                        <button className='search-btn'>SEARCH</button>
+                        <button type='button' className='search-btn' onClick={search}>Search</button>
                       </div>
                     </div>
                   </div>
@@ -384,7 +361,7 @@ function Search() {
                     </div>
                   </div>
                   <div className='text-center'>
-                    <button className='search-btn' >Search</button>
+                    <button type='button' className='search-btn' onClick={search}>Search</button>
                   </div>
                 </div>
               </Tab>
@@ -552,7 +529,7 @@ function Search() {
                     </div>
                   </div>
                   <div className='text-center'>
-                    <button className='search-btn'>SEARCH</button>
+                    <button type='button' className='search-btn' onClick={search}>Search</button>
                   </div>
                 </div>
               </Tab>
@@ -562,7 +539,7 @@ function Search() {
                     <label for="exampleInputEmail1" class="form-label">Search ID *</label>
                     <input type="text" className="form-control w-50 mx-auto" />
                     <div className='text-center'>
-                      <button className='search-btn'>SEARCH</button>
+                      <button type='button' className='search-btn' onClick={search}>Search</button>
                     </div>
                   </div>
                 </div>

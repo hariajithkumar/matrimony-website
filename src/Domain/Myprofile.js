@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Profileheader from '../Common/page/Profileheader'
 import Footer from '../Common/page/Footer'
 import Useraside from '../Common/page/Useraside'
@@ -24,10 +24,6 @@ import family1 from '../Common/image/family1.png'
 import family2 from '../Common/image/family2.png'
 import contact1 from '../Common/image/contact1.png'
 import contact2 from '../Common/image/contact2.png'
-
-
-
-
 
 
 function Myprofile() {
@@ -81,6 +77,9 @@ function Myprofile() {
     }
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -497,7 +496,6 @@ function Myprofile() {
             </div>
           </div>
         </div>
-
       </section>
       <Footer />
     </>

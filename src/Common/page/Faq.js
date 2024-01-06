@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const FaqItem = ({ title, content }) => {
   const [isActive, setIsActive] = useState(false);
@@ -6,7 +6,9 @@ const FaqItem = ({ title, content }) => {
   const handleToggle = () => {
     setIsActive(!isActive);
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className='card border-0 faq-card my-5'>
       <div className="accordion-item border-0">
