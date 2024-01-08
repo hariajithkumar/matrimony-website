@@ -1,5 +1,5 @@
 import {
-  BrowserRouter, Routes, Route
+  BrowserRouter, Routes, Route,useLocation 
 } from 'react-router-dom'
 import React, { useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,8 +25,14 @@ import SimpleSlider from './Domain/SimpleSlider ';
 import Searchprofile from './Domain/Searchprofile';
 import Profileview from './Domain/Profileview';
 import Matches from './Domain/Matches';
+import Error from './Domain/Error';
+import Header from './Common/page/Header';
+import Footer from './Common/page/Footer';
+import Topheader from './Common/page/Topheader';
 function App() {
+
   useEffect(() => {
+  
     const handleScroll = () => {
       const cards = document.querySelectorAll('.slide-up, .slide-left, .slide-right');
       cards.forEach(card => {
@@ -75,6 +81,7 @@ function App() {
           <Route path='searchprofile' element={<Searchprofile />} />
           <Route path='profileview' element={<Profileview />} />
           <Route path='matches' element={<Matches />} />
+          <Route path='*' element={<Error />} />
         </>
       </Routes>
     </BrowserRouter>

@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // import '../Common/css/Matchesprofile.css'
 
-const itemsPerPage = 20;
+const itemsPerPage = 3;
 
 const data = [
     { id: 1, photo: profile5, name: 'Joaquín Díaz', age: 24, education: 'B.E', place: 'chennai', title: 'New Matches' },
@@ -28,10 +28,12 @@ const data = [
     { id: 4, photo: profile8, name: 'Joaquín Díaz', age: 30, education: 'BBA', place: 'kovai', title: 'Mutual Matches' },
     { id: 5, photo: profile9, name: 'Mohammed Hassa', age: 25, education: 'B.E', place: 'chennai', title: 'New Matches' },
     { id: 6, photo: profile10, name: 'Yassin Bankole', age: 22, education: 'MBBS', place: 'chennai', title: 'Total Matches' },
-    { id: 7, photo: profile5, name: 'Joaquín Díaz', age: 24, education: 'B.Tech', place: 'kerala', title: 'Premium Matches' },
+    { id: 7, photo: profile5, name: 'Joaquín Díaz', age: 24, education: 'B.Tech', place: 'kerala', title: 'Mutual Matches' },
     { id: 8, photo: profile6, name: 'Mohammed Hassa', age: 25, education: 'B.E', place: 'kerala', title: 'Mutual Matches' },
 ];
+const searchData = []
 const caste = [
+    { label: 'All', value: 'All' },
     { label: 'New Matches', value: 'New Matches' },
     { label: 'Total Matches', value: 'Total Matches' },
     { label: 'Premium Matches', value: 'Premium Matches' },
@@ -39,20 +41,37 @@ const caste = [
 ];
 const Matchesprofile = () => {
     const { singleProfile, currentPage, isMatches } = useSelector((state) => state.matrimony)
+    const [searchName, setSearchName] = useState('')
+    const [findPage, setFindPage] = useState(0);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const searchResults = data.filter((profile) => profile.name.toLowerCase().includes(searchName) || profile.age <= parseFloat(searchName));
+   
+    const [filterLenght, setFilterLenght] = useState([]);
 
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+    const filterSearch = data.filter((fliterItem) => fliterItem.title === isMatches);
 
-    const totalPages = Math.ceil(data.length / itemsPerPage);
+    useEffect(() => {
+        setFilterLenght(filterSearch);
+    }, [isMatches, data]);
+
+    const [totalProfile, setTotalProfile] = useState(searchResults.length);
+
+    const itemsPerPage = 6;
+    const [currentPages, setCurrentPages] = useState(1);
+
+    const startIndex = (currentPages - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentResults = filterSearch ? searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).slice(startIndex, endIndex) : [];
+    const totalPages = Math.ceil((filterSearch ? searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).length : 0) / itemsPerPage);
 
     const handlePageChange = (newPage) => {
-        dispatch(setCurrentPage(newPage));
-    }
+        setCurrentPages(newPage);
+        setFindPage(newPage)
+    };
+
     const viewprofile = (items) => {
         dispatch(setsingleProfile([items]))
         localStorage.setItem('singleProfile', JSON.stringify(items));
@@ -64,7 +83,6 @@ const Matchesprofile = () => {
         profileviews()
         dispatch(setsingleProfile([]))
     }
-
     const settings = {
         // dots: true,
         infinite: true,
@@ -108,104 +126,62 @@ const Matchesprofile = () => {
             },
         ],
     };
-
-    // console.log(singleProfile)
     return (
         <div className='find-profile'>
             <div>
                 <div className='row m-0'>
-                    <div className='col-6'>
+                    <div className='col-4'>
                         <label className='py-2 label-font'>Matches Title</label>
                         <Select
                             options={caste}
                             isSearchable
+                            value={{ value: isMatches, label: isMatches }}
                             onChange={(selectedOption) => dispatch(setIsMatches(selectedOption.value))}
                         />
                     </div>
-                    <div className='col-6'>
+                    <div className='col-2 align-self-center justify-content-center'>
+                        <label className='py-2 label-font'>No.of.Profile</label>
+                        <input type='text' className='form-control' value={isMatches == 'All' ? searchResults.length : filterSearch.length}/>
                     </div>
+                    <div className='col-6 align-self-center justify-content-center'>
+                        <label className='py-2 label-font'>Search</label>
+                        <input type='search' className='form-control' placeholder='Enter the name,age' onChange={(e) => setSearchName(e.target.value)} />
+                    </div>
+                    
                 </div>
                 <div className='row m-0'>
-                    {isMatches.length == 0 ?
+                    {searchResults.length > 0 ?
                         <>
-                            {currentItems.map((item, index) => (  // Added index to ensure unique keys
-                                    
-                                        <div className='col-4 my-3' key={item.id}>
-                                            <div className="card border-0 px-2">
-                                                <img src={item.photo} className="w-100 profile-img" alt="..." />
-                                                <div className="card-body card-content w-100">
-                                                    <h5 className="">{item.name}</h5>
-                                                    <h6 className="">Age - {item.age}</h6>
-                                                    <h6 className="">Education - {item.education}</h6>
-                                                    <h6 className="">{item.place}</h6>
-                                                    <div className='text-end'>
-                                                        <button type='button' className='view-btn' onClick={() => viewprofile(item)}>View</button>
-                                                    </div>
-                                                </div>
+                            {currentResults.map((item, index) => (
+                                <div className='col-4 my-3' key={item.id}>
+                                    <div className="card border-0 px-2">
+                                        <img src={item.photo} className="w-100 profile-img" alt="..." />
+                                        <div className="card-body card-content w-100">
+                                            <h5>{item.name}</h5>
+                                            <h6>Age - {item.age}</h6>
+                                            <h6>Education - {item.education}</h6>
+                                            <h6>{item.place}</h6>
+                                            <div className='text-end'>
+                                                <button type='button' className='view-btn' onClick={() => viewprofile(item)}>View</button>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
                             ))}
+                            <div className="text-end find-btn">
+                                {Array.from({ length: totalPages }, (_, i) => (
+                                    <button className={`action-btn ${i === findPage ? 'active' : ''}`} key={i + 1} onClick={() => handlePageChange(i + 1)}>{i+1}</button>
+                                ))}
+                            </div>
                         </>
                         :
                         <>
-                            {currentItems.map((item, index) => (  // Added index to ensure unique keys
-                                item.title == isMatches ?
-                                    <>
-                                        <div className='col-4 my-3' key={item.id}>
-                                            <div className="card border-0 px-2">
-                                                <img src={item.photo} className="w-100 profile-img" alt="..." />
-                                                <div className="card-body card-content w-100">
-                                                    <h5 className="">{item.name}</h5>
-                                                    <h6 className="">Age - {item.age}</h6>
-                                                    <h6 className="">Education - {item.education}</h6>
-                                                    <h6 className="">{item.place}</h6>
-                                                    <div className='text-end'>
-                                                        <button type='button' className='view-btn' onClick={() => viewprofile(item)}>View</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </>
-
-                                    :
-
-
-                                    <></>
-
-
-                            ))}
+                            <h1 className='text-center my-5'>No search partner</h1>
                         </>
                     }
 
+
                 </div>
-                {/* {isMatches.length == 0 ?
-                    <></>
-
-
-                    : */}
-                    <>
-                        <div className='py-5 text-end'>
-                            <button
-                                type='button'
-                                onClick={() => handlePageChange(currentPage - 1)}
-                                disabled={currentPage === 1}
-                                className='action-btn'
-                            >
-                                Previous
-                            </button>
-                            <span> Page {currentPage} of {totalPages} </span>
-                            <button
-                                type='button'
-                                onClick={() => handlePageChange(currentPage + 1)}
-                                disabled={currentPage === totalPages}
-                                className='action-btn'
-                            >
-                                Next
-                            </button>
-                        </div>
-                    </>
-
-                {/* } */}
 
             </div>
         </div >

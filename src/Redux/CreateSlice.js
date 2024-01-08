@@ -8,7 +8,7 @@ export const CrateSlice = createSlice({
         profileDetails:'',
         singleProfile:[],
         currentPage:1,
-        isMatches:''
+        isMatches:'All'
     },
 
     reducers : {

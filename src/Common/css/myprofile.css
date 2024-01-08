@@ -219,3 +219,8 @@
     padding: 10px 5px;
     margin: 0px auto;
 }
+
+.find-btn .active{
+    color: #FFF;
+    background: var(--style-2, linear-gradient(111deg, #2BB673 -1.4%, #00425E 91.89%));
+}

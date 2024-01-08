@@ -116,7 +116,6 @@ const Findprofile = () => {
         ],
     };
 
-    // console.log(singleProfile)
     return (
         <div className='container-90 owl-theme mt-5 find-profile'>
             <div>

@@ -47,13 +47,10 @@ function Matches() {
                                     <div className='verify'>
                                         <h2><img src={verify} className='me-3' /><span>Verify your profile</span> using Govt ID proofs and get a badge to look genuine.</h2>
                                     </div>
-                                </div>
-                                
+                                </div>                               
                                 <div className='profile-verify'>
                                     <div className='verify'>
                                         <Matchesprofile />
-
-
                                     </div>
                                 </div>
                             </div>
