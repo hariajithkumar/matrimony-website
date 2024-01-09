@@ -1,5 +1,5 @@
 import {
-  BrowserRouter, Routes, Route,useLocation 
+  BrowserRouter, Routes, Route 
 } from 'react-router-dom'
 import React, { useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,7 +17,6 @@ import Myprofile from './Domain/Myprofile';
 import Partner from './Domain/Partner';
 import Photoupload from './Domain/Photoupload';
 import Proofverify from './Domain/Proofverify';
-import Imagecrop from './Domain/Imagecrop';
 import Finalcrop from './Domain/FinalCrop';
 import Resizeimage from './Domain/Resizeimage';
 import OwlCarouselComponent from './Domain/OwlCarouselComponent';
@@ -26,9 +25,6 @@ import Searchprofile from './Domain/Searchprofile';
 import Profileview from './Domain/Profileview';
 import Matches from './Domain/Matches';
 import Error from './Domain/Error';
-import Header from './Common/page/Header';
-import Footer from './Common/page/Footer';
-import Topheader from './Common/page/Topheader';
 function App() {
 
   useEffect(() => {
@@ -59,7 +55,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <>
-          <Route path='' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='search' element={<Search />} />
           <Route path='package' element={<Package />} />
           <Route path='faq' element={<Faqpage />} />

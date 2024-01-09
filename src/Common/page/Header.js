@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import Logo from '../image/Sahyatri-Matrimony-Logo.png';
@@ -9,10 +8,10 @@ function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { pathname, search, hash } = location;
+  const { pathname } = location;
 
   const navButton = () => {
-    if (isClass1Show == false) {
+    if (isClass1Show === false) {
       dispatch(setClass1Hide(true))
     } else {
       dispatch(setClass1Hide(false))

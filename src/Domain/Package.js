@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Tabs, Tab, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,11 +11,16 @@ import '../Common/css/search.css'
 import Check from '../Common/image/Check.png'
 import Topheader from '../Common/page/Topheader';
 import Topmove from '../Common/page/Topmove';
+import { setPaymentProcess } from '../Redux/CreateSlice';
 
 function Search() {
-  const { isClass1Show } = useSelector((state) => state.matrimony)
+  const { isClass1Show,paymentProcess } = useSelector((state) => state.matrimony)
   const [key, setKey] = useState('home');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const payment = (id) => {
+        dispatch(setPaymentProcess(id))
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

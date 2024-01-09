@@ -7,14 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/topheader.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faBox, faContactCard, faHome, faMoneyBill, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBox, faContactCard, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import userprofile from '../image/userprofile.png'
 
 import '../css/myprofile.css'
 
 import Rightnav from './Rightnav';
-import Topmove from './Topmove';
 
 function Profileheader() {
 

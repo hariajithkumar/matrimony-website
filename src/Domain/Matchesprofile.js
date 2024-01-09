@@ -52,8 +52,9 @@ const Matchesprofile = () => {
     const [filterLenght, setFilterLenght] = useState([]);
 
     const filterSearch = data.filter((fliterItem) => fliterItem.title === isMatches);
-
+    // console.log(filterSearch)
     useEffect(() => {
+        window.scrollTo(0, 0);
         setFilterLenght(filterSearch);
     }, [isMatches, data]);
 
@@ -64,9 +65,17 @@ const Matchesprofile = () => {
 
     const startIndex = (currentPages - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentResults = filterSearch ? searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).slice(startIndex, endIndex) : [];
+    // const currentResults = filterSearch ? console.log("ajith") : console.log('kumar');
+    let currentResults;
+    if (filterSearch) {
+        if(isMatches=='All'){
+            currentResults = searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).slice(startIndex, endIndex); 
+        }else{
+            currentResults = filterSearch.filter((profile) => profile.name.toLowerCase().includes(searchName) || profile.age <= parseFloat(searchName))
+        }
+      } 
+    //   const currentResults = filterSearch ? searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).slice(startIndex, endIndex); 
     const totalPages = Math.ceil((filterSearch ? searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).length : 0) / itemsPerPage);
-
     const handlePageChange = (newPage) => {
         setCurrentPages(newPage);
         setFindPage(newPage)
