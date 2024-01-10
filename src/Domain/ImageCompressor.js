@@ -16,7 +16,6 @@ const ImageCompressor = () => {
     const imageDimensions = await (file);
     // const imageDimensions = await imageSize(file);
 
-    // console.log({ imageDimensions, size: niceBytes(file.size) });
 
     const options = {
       maxSizeMB: 1,
@@ -32,7 +31,6 @@ const ImageCompressor = () => {
 
   const uploadImage = async (files) => {
     const compressedImage = await compressImage(files[0]);
-    console.log(1, compressedImage.name)
     setCompressedImages((prevImages) => [...prevImages, compressedImage]);
   };
   const deleteitem = (id) => {
@@ -40,7 +38,6 @@ const ImageCompressor = () => {
     const updatedFiles = compressedImages.filter((file, index) => index !== idToRemove);
     setCompressedImages(updatedFiles);
   };
-  console.log(compressedImages)
   return (
     <div>
       <form>

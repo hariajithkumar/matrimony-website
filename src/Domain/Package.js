@@ -20,7 +20,11 @@ function Search() {
   const navigate = useNavigate();
   const payment = (id) => {
         dispatch(setPaymentProcess(id))
+        navigate('/upgradeprocess')
   }
+    // const upgrade = () => {
+    //     navigate
+    // }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -90,7 +94,7 @@ function Search() {
                                     </div>
                                     <div className='col-lg-7 col-md-7 col-sm-12 col-12 text-start p-0'>
                                         <div className="mt-3 text-end px-3">
-                                            <button className="btn btn-outline-success w-100" type="button">Upgrade</button>
+                                            <button className="btn btn-outline-success w-100" type="button" onClick={(id)=>payment(1)}>Upgrade</button>
                                         </div>
                                     </div>
                                 </div>

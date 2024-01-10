@@ -43,7 +43,6 @@ function Search() {
   for (let i = 22; i <= 50; i++) {
     age.push({ value: i, label: i });
   }
-  console.log(age)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

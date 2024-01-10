@@ -150,7 +150,10 @@
     -webkit-text-fill-color: transparent;
 }
 
-
+/* upgrade process css start  */
+.payment-process .form-content{
+    padding: 10px;
+}
 
 /* findprofile css start  */
 /* .find-profile .slick-cloned{

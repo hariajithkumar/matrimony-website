@@ -2,7 +2,7 @@
 /* Add this to your existing styles or create a new CSS file */
 
 .scroll-container {
-    max-height: calc(100vh -100px); 
+    /* max-height: calc(100vh -100px);  */
     overflow-y: auto;
   }
   

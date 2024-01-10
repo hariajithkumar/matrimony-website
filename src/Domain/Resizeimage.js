@@ -14,7 +14,6 @@ const Resizeimage = () => {
   const onDrop = useCallback(async (acceptedFiles) => {
     const file = acceptedFiles[0];
     const imageDimensions = await imageSize(file);
-    console.log({ imageDimensions, size: niceBytes(file.size) });
 
     const options = {
       maxSizeMB: 1,
@@ -44,11 +43,9 @@ const Resizeimage = () => {
 
       try {
         const compressedImg = await imageCompression(croppedDataUrl, options);
-        console.log(7, niceBytes(compressedImg.size));
 
         setCroppedImage(croppedDataUrl);
         setCropImage([...cropImage, croppedDataUrl]);
-        console.log(0, niceBytes(croppedDataUrl.length));
       } catch (error) {
         console.error('Error compressing cropped image:', error);
       }

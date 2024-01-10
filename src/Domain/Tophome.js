@@ -42,7 +42,6 @@ function Tophome() {
     const login = () => {
         navigate('/login')
     }
-    console.log(checkDetails)
     return (
         <div>
             {/* <Topheader /> */}

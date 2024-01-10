@@ -1,7 +1,7 @@
 {
   "name": "matrimony",
   "version": "0.1.0",
-  "homepage": "https://webbitech.co.in/webbitech.co.in/matrimony",
+  "homepage": "https://webbitech.co.in/matrimony",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
@@ -41,7 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set  \"GENERATE_SOURCEMAP=true\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

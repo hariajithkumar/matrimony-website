@@ -46,7 +46,10 @@ const Rightnav = ({ isOpen, onClose }) => {
             navigate('/Myprofile')
         } else if (item === 'Partner') {
             navigate('/Partner')
-        } else if (item === 'Photoupload') {
+        }else if (item === 'Matches') {
+            navigate('/matches')
+        } 
+        else if (item === 'Photoupload') {
             navigate('/Photoupload')
         } else if (item === 'Proofverify') {
             navigate('/Proofverify')
@@ -81,8 +84,8 @@ const Rightnav = ({ isOpen, onClose }) => {
                                     <li className={`list-group-item border-0 hover-action ${pathname === '/Partner' ? 'active' : 'inactive'}`} onClick={() => handleItemClick('Partner')}>
                                         Partner Preference <img src={pathname === '/Partner' ? rightarrow : rightinactive} className='pe-2 float-end' />
                                     </li>
-                                    <li className={`list-group-item border-0 hover-action ${pathname === '/ajith' ? 'active' : 'inactive'}`} onClick={() => handleItemClick('Account')}>
-                                        Matches <img src={pathname === '/ajith' ? rightarrow : rightinactive} className='pe-2 float-end' />
+                                    <li className={`list-group-item border-0 hover-action ${pathname === '/matches' ? 'active' : 'inactive'}`} onClick={() => handleItemClick('Matches')}>
+                                        Matches <img src={pathname === '/matches' ? rightarrow : rightinactive} className='pe-2 float-end' />
                                     </li>
                                     <li className={`list-group-item border-0 hover-action ${pathname === '/Photoupload' ? 'active' : 'inactive'}`} onClick={() => handleItemClick('Photoupload')}>
                                         Photos & Horoscope <img src={pathname === '/Photoupload' ? rightarrow : rightinactive} className='pe-2 float-end' />

@@ -50,7 +50,6 @@ const imageSize = (file) => {
     return promise;
 };
 
-console.log(0,imageSize)
 const PhotoCrop = () => {
     const [image, setImage] = useState(null);
     const [cropImage, setCropImage] = useState([]);
@@ -63,7 +62,6 @@ const PhotoCrop = () => {
     const onDrop = useCallback(async (acceptedFiles) => {
         const file = acceptedFiles[0];
         const imageDimensions = await imageSize(file);
-        console.log({ imageDimensions, size: niceBytes(file.size) });
         const options = {
             maxSizeMB: 1,
             maxWidthOrHeight: imageDimensions?.width > 1300 ? 1300 : imageDimensions?.width,
@@ -71,7 +69,6 @@ const PhotoCrop = () => {
         };
 
         const compressedImg = await imageCompression(file, options);
-        console.log(6, niceBytes(compressedImg.size))
         // Convert the compressed image to base64
         const base64String = await convertToBase64(compressedImg);
 
@@ -98,7 +95,6 @@ const PhotoCrop = () => {
             const croppedDataUrl = cropper.getCroppedCanvas().toDataURL();
             setCroppedImage(croppedDataUrl);
             setCropImage([...cropImage, croppedDataUrl]);
-            console.log(0, niceBytes(cropImage).size);
         }
         setImage(null);
     };
@@ -118,8 +114,6 @@ const PhotoCrop = () => {
         const updatedFiles = cropImage.filter((file, index) => index !== idToRemove);
         setCropImage(updatedFiles);
     };
-    console.log(image)
-    console.log(cropImage)
     return (
         <div>
             <div {...getRootProps()} style={{ width: '150px', height: '40px', position: 'relative', left: '30px', paddingBottom: '50px', marginTop: '25px' }}>

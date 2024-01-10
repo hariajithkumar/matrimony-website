@@ -109,7 +109,6 @@ function Proofverify() {
     const compressImage = async (file) => {
         const reader = new FileReader();
         const imageDimensions = await imageSize(file);
-        console.log({ imageDimensions, size: niceBytes(file.size) });
 
         const options = {
             maxSizeMB: 1,
@@ -118,7 +117,6 @@ function Proofverify() {
         };
 
         const compressedImg = await imageCompression(file, options);
-        console.log(6, niceBytes(compressedImg.size))
         // Convert the compressed image to base64
         const base64String = await convertToBase64(compressedImg);
 

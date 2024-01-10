@@ -25,6 +25,7 @@ import Searchprofile from './Domain/Searchprofile';
 import Profileview from './Domain/Profileview';
 import Matches from './Domain/Matches';
 import Error from './Domain/Error';
+import Payment from './Domain/Payment';
 function App() {
 
   useEffect(() => {
@@ -77,6 +78,7 @@ function App() {
           <Route path='searchprofile' element={<Searchprofile />} />
           <Route path='profileview' element={<Profileview />} />
           <Route path='matches' element={<Matches />} />
+          <Route path='upgradeprocess' element={<Payment />}/>
           <Route path='*' element={<Error />} />
         </>
       </Routes>

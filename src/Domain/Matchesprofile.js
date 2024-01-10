@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 
-// import '../Common/css/Matchesprofile.css'
+import '../Common/css/simpleslider.css'
 
 const itemsPerPage = 3;
 
@@ -48,15 +48,11 @@ const Matchesprofile = () => {
     const navigate = useNavigate();
 
     const searchResults = data.filter((profile) => profile.name.toLowerCase().includes(searchName) || profile.age <= parseFloat(searchName));
-   
+
     const [filterLenght, setFilterLenght] = useState([]);
 
     const filterSearch = data.filter((fliterItem) => fliterItem.title === isMatches);
-    // console.log(filterSearch)
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        setFilterLenght(filterSearch);
-    }, [isMatches, data]);
+
 
     const [totalProfile, setTotalProfile] = useState(searchResults.length);
 
@@ -65,15 +61,14 @@ const Matchesprofile = () => {
 
     const startIndex = (currentPages - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    // const currentResults = filterSearch ? console.log("ajith") : console.log('kumar');
     let currentResults;
     if (filterSearch) {
-        if(isMatches=='All'){
-            currentResults = searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).slice(startIndex, endIndex); 
-        }else{
+        if (isMatches == 'All') {
+            currentResults = searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).slice(startIndex, endIndex);
+        } else {
             currentResults = filterSearch.filter((profile) => profile.name.toLowerCase().includes(searchName) || profile.age <= parseFloat(searchName))
         }
-      } 
+    }
     //   const currentResults = filterSearch ? searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).slice(startIndex, endIndex); 
     const totalPages = Math.ceil((filterSearch ? searchResults.filter(item => (item.title === isMatches || isMatches === 'All')).length : 0) / itemsPerPage);
     const handlePageChange = (newPage) => {
@@ -93,11 +88,9 @@ const Matchesprofile = () => {
         dispatch(setsingleProfile([]))
     }
     const settings = {
-        // dots: true,
         infinite: true,
         speed: 500,
-        loop: true,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         // autoplay:true,
         navigation: {
@@ -106,40 +99,27 @@ const Matchesprofile = () => {
         },
         responsive: [
             {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
                 breakpoint: 556,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                 },
             },
+
         ],
     };
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        setFilterLenght(filterSearch);
+    }, [isMatches, data]);
+
     return (
         <div className='find-profile'>
             <div>
                 <div className='row m-0'>
-                    <div className='col-4'>
+                    <div className='col-lg-4 col-md-10 col-sm-9 col-12'>
                         <label className='py-2 label-font'>Matches Title</label>
                         <Select
                             options={caste}
@@ -148,48 +128,76 @@ const Matchesprofile = () => {
                             onChange={(selectedOption) => dispatch(setIsMatches(selectedOption.value))}
                         />
                     </div>
-                    <div className='col-2 align-self-center justify-content-center'>
+                    <div className='col-lg-2 col-md-2 col-sm-3 col-12 align-self-center justify-content-center'>
                         <label className='py-2 label-font'>No.of.Profile</label>
-                        <input type='text' className='form-control' value={isMatches == 'All' ? searchResults.length : filterSearch.length}/>
+                        <input type='text' className='form-control' value={isMatches == 'All' ? searchResults.length : filterSearch.length} />
                     </div>
-                    <div className='col-6 align-self-center justify-content-center'>
+                    <div className='col-lg-6 col-12 align-self-center justify-content-center'>
                         <label className='py-2 label-font'>Search</label>
                         <input type='search' className='form-control' placeholder='Enter the name,age' onChange={(e) => setSearchName(e.target.value)} />
                     </div>
-                    
                 </div>
-                <div className='row m-0'>
-                    {searchResults.length > 0 ?
-                        <>
-                            {currentResults.map((item, index) => (
-                                <div className='col-4 my-3' key={item.id}>
-                                    <div className="card border-0 px-2">
-                                        <img src={item.photo} className="w-100 profile-img" alt="..." />
-                                        <div className="card-body card-content w-100">
-                                            <h5>{item.name}</h5>
-                                            <h6>Age - {item.age}</h6>
-                                            <h6>Education - {item.education}</h6>
-                                            <h6>{item.place}</h6>
-                                            <div className='text-end'>
-                                                <button type='button' className='view-btn' onClick={() => viewprofile(item)}>View</button>
+                <div className='d-lg-block d-md-block d-sm-block d-none'>
+                    <div className='row m-0'>
+                        {searchResults.length > 0 ?
+                            <>
+                                {currentResults.map((item, index) => (
+                                    <div className='col-lg-4 col-md-4 col-sm-6 col-12 my-3' key={item.id}>
+                                        <div className="card border-0 px-2">
+                                            <img src={item.photo} className="w-100 profile-img" alt="..." />
+                                            <div className="card-body card-content w-100">
+                                                <h5>{item.name}</h5>
+                                                <h6>Age - {item.age}</h6>
+                                                <h6>Education - {item.education}</h6>
+                                                <h6>{item.place}</h6>
+                                                <div className='text-end'>
+                                                    <button type='button' className='view-btn' onClick={() => viewprofile(item)}>View</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                            <div className="text-end find-btn">
-                                {Array.from({ length: totalPages }, (_, i) => (
-                                    <button className={`action-btn ${i === findPage ? 'active' : ''}`} key={i + 1} onClick={() => handlePageChange(i + 1)}>{i+1}</button>
                                 ))}
-                            </div>
-                        </>
-                        :
-                        <>
-                            <h1 className='text-center my-5'>No search partner</h1>
-                        </>
-                    }
+                                <div className="text-end find-btn">
+                                    {Array.from({ length: totalPages }, (_, i) => (
+                                        <button className={`action-btn ${i === findPage ? 'active' : ''}`} key={i + 1} onClick={() => handlePageChange(i + 1)}>{i + 1}</button>
+                                    ))}
+                                </div>
+                            </>
+                            :
+                            <>
+                                <h1 className='text-center my-5'>No search partner</h1>
+                            </>
+                        }
 
 
+                    </div>
+                </div>
+                <div className='d-lg-none d-md-none d-sm-none d-block mt-5'>
+                    <div className='owl-theme mt-5'>
+                        <Slider {...settings}>
+                            {searchResults.length > 0 ? (
+                                currentResults && currentResults.length > 0 ? (
+                                    currentResults.map((item, index) => (
+                                        <div key={index} className="card border-0 px-2">
+                                            <img src={item.photo} className="w-100 profile-img" alt="..." />
+                                            <div className="card-body card-content">
+                                                <h5>{item.name}</h5>
+                                                <h6>Age - {item.age}</h6>
+                                                <h6>Education - {item.education}</h6>
+                                                <h6>{item.place}</h6>
+                                                <div className='text-end'>
+                                                    <button type='button' className='view-btn' onClick={() => viewprofile(item)}>View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <h1 className='text-center my-5'>No search partner</h1>
+                                )
+                            ) : null}
+                        </Slider>
+
+                    </div>
                 </div>
 
             </div>
