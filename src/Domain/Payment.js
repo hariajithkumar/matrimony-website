@@ -23,7 +23,7 @@ function Payment() {
   const [key, setKey] = useState('home');
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [amount, setAmount] = useState(12000);
+  const [amount, setAmount] = useState(10000);
   const [gstRate, setGstRate] = useState(12);
   const [totalAmount, setTotalAmount] = useState(0);
 

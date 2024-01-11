@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/matrimony/static/css/main.5145b3c1.css",
-    "main.js": "/matrimony/static/js/main.987618b9.js",
-    "static/js/787.e1280592.chunk.js": "/matrimony/static/js/787.e1280592.chunk.js",
+    "main.css": "/matrimony/static/css/main.7bfe8331.css",
+    "main.js": "/matrimony/static/js/main.0a2476cb.js",
+    "static/js/27.3e2b0b12.chunk.js": "/matrimony/static/js/27.3e2b0b12.chunk.js",
     "static/media/top-header.png": "/matrimony/static/media/top-header.7f23aafeb26ca2fd2d7e.png",
     "static/media/header-image.png": "/matrimony/static/media/header-image.2017ced3ee9f7621355d.png",
     "static/media/matrimony7.jpg": "/matrimony/static/media/matrimony7.75c52b3c04152a504bdd.jpg",
@@ -25,6 +25,7 @@
     "static/media/video-call-2.png": "/matrimony/static/media/video-call-2.2c18ac667ea157ea0ca7.png",
     "static/media/work.png": "/matrimony/static/media/work.3ee20f0cd18b157f3b22.png",
     "static/media/profile-2.png": "/matrimony/static/media/profile-2.757567899af942b43cd3.png",
+    "static/media/payment1.png": "/matrimony/static/media/payment1.8e87c931c80e5301a4c5.png",
     "static/media/profile-1.jpg": "/matrimony/static/media/profile-1.dd8bdbce6e2c09988908.jpg",
     "static/media/video-call-1.png": "/matrimony/static/media/video-call-1.c0b7e9fc36602ce3b419.png",
     "static/media/app-available.png": "/matrimony/static/media/app-available.d0b3bf021cc3cdc4aa49.png",
@@ -34,18 +35,16 @@
     "static/media/intreract.png": "/matrimony/static/media/intreract.a35075fe50afcff0a14a.png",
     "static/media/connects.png": "/matrimony/static/media/connects.8433ac6b4423047cb9de.png",
     "static/media/profile.png": "/matrimony/static/media/profile.ea07b6f58fe1dd08f8ce.png",
+    "static/media/payment.png": "/matrimony/static/media/payment.6d767d83f01b195e11ec.png",
     "static/media/Sahyatri-Matrimony-Logo.png": "/matrimony/static/media/Sahyatri-Matrimony-Logo.4350dcc0319549d2f5e5.png",
     "index.html": "/matrimony/index.html",
     "static/media/slick.svg": "/matrimony/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/matrimony/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/matrimony/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/matrimony/static/media/slick.295183786cd8a1389865.woff",
-    "main.5145b3c1.css.map": "/matrimony/static/css/main.5145b3c1.css.map",
-    "main.987618b9.js.map": "/matrimony/static/js/main.987618b9.js.map",
-    "787.e1280592.chunk.js.map": "/matrimony/static/js/787.e1280592.chunk.js.map"
+    "static/media/slick.woff": "/matrimony/static/media/slick.295183786cd8a1389865.woff"
   },
   "entrypoints": [
-    "static/css/main.5145b3c1.css",
-    "static/js/main.987618b9.js"
+    "static/css/main.7bfe8331.css",
+    "static/js/main.0a2476cb.js"
   ]
 }

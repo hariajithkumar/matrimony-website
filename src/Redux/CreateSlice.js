@@ -9,7 +9,8 @@ export const CrateSlice = createSlice({
         singleProfile:[],
         currentPage:1,
         isMatches:'All',
-        paymentProcess : []
+        paymentProcess : [],
+        profileImage : ''
     },
 
     reducers : {
@@ -31,11 +32,14 @@ export const CrateSlice = createSlice({
         setPaymentProcess:(state,action) => {
             state.paymentProcess = action.payload
         },
+        setProfileImage:(state,action) => {
+            state.profileImage = action.payload
+        },
         
         
     }
 }) 
 
-export const {setClass1Hide, setprofileDetails,setsingleProfile,setCurrentPage,setIsMatches,setPaymentProcess} = CrateSlice.actions
+export const {setClass1Hide, setprofileDetails,setsingleProfile,setCurrentPage,setIsMatches,setPaymentProcess,setProfileImage} = CrateSlice.actions
 export default CrateSlice.reducer
 

@@ -7,8 +7,10 @@ import imageCompression from "browser-image-compression";
 
 import addphoto from '../Common/image/add-photo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faEllipsis, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import Resizeimage from './Resizeimage';
+import { useDispatch , useSelector } from 'react-redux';
+import { setProfileImage } from '../Redux/CreateSlice';
 
 
 
@@ -51,13 +53,17 @@ const imageSize = (file) => {
 };
 
 const PhotoCrop = () => {
+    const { profileImage } = useSelector((state) => state.matrimony)
     const [image, setImage] = useState(null);
     const [cropImage, setCropImage] = useState([]);
     const [cropper, setCropper] = useState();
     const [hideCrop, setHideCrop] = useState(0)
     const [errorMessage, setErrorMessage] = useState('');
     const [croppedImage, setCroppedImage] = useState(null);
+    const [finalImage, setFinalImage] = useState([])
+    const [optionsState, setOptionsState] = useState({});
 
+    const dispatch = useDispatch();
 
     const onDrop = useCallback(async (acceptedFiles) => {
         const file = acceptedFiles[0];
@@ -74,9 +80,9 @@ const PhotoCrop = () => {
 
         // return base64String;
         setImage(URL.createObjectURL(file));
-        // setImage(base64String);
         setErrorMessage('');
     }, []);
+
     const convertToBase64 = (file) => {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -85,9 +91,9 @@ const PhotoCrop = () => {
             reader.onerror = (error) => reject(error);
         });
     };
+
     const selectImage = () => {
         setHideCrop(0);
-
     }
 
     const handleCrop = async () => {
@@ -95,9 +101,11 @@ const PhotoCrop = () => {
             const croppedDataUrl = cropper.getCroppedCanvas().toDataURL();
             setCroppedImage(croppedDataUrl);
             setCropImage([...cropImage, croppedDataUrl]);
+            setFinalImage([...finalImage, croppedDataUrl])
         }
         setImage(null);
     };
+   
 
     const { getRootProps, getInputProps } = useDropzone({
         // image: 'addphoto',
@@ -114,6 +122,26 @@ const PhotoCrop = () => {
         const updatedFiles = cropImage.filter((file, index) => index !== idToRemove);
         setCropImage(updatedFiles);
     };
+
+    // option function 
+    const handleOptionClick = (index) => {
+        setOptionsState((prevOptionsState) => ({
+            ...prevOptionsState,
+            [index]: !prevOptionsState[index],
+        }));
+    };
+    // option delete profile photo fn 
+    const photoRemove = (id) =>{
+        const idToRemove = id; // Replace with the actual 'id' you want to remove
+        const updatedFiles = finalImage.filter((file, index) => index !== idToRemove);
+        setFinalImage(updatedFiles);
+        alert("Remove the Image")
+    }
+    // profileset image fn 
+    const profileSet = (data) =>{
+        const profile_photo = finalImage[data]
+        dispatch(setProfileImage(profile_photo))
+    }
     return (
         <div>
             <div {...getRootProps()} style={{ width: '150px', height: '40px', position: 'relative', left: '30px', paddingBottom: '50px', marginTop: '25px' }}>
@@ -165,6 +193,35 @@ const PhotoCrop = () => {
                 })}
             </div>
             {cropImage.length > 0 ? <><div><button className='upload-img' onClick={save}>Upload Image</button></div></> : <></>}
+            {cropImage.length > 0 ? <></> :
+                <>
+                    <div className='row m-0'>
+                        {finalImage.map((data, index) => {
+                            return (                                   
+                                <>
+                                    <div key={data.id} className='col-6 my-3 text-center position-relative'>
+                                        <img src={data} className='h-100 upload-photo ' />
+                                        <span onClick={() => handleOptionClick(index)} className='position-absolute top-0 p-2' style={{ left: '84%',width: '20px',height: '20px',border: 'none',borderRadius: '10px',background: 'black',marginTop: '10px',display:'flex',alignItems:'center',justifyContent:'center' }}>
+                                            <FontAwesomeIcon
+                                                icon={faEllipsisVertical}
+                                                style={{ color: '#FFF' }}
+                                                
+                                            />
+                                        </span>
+                                        {optionsState[index] && (
+                                            <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '60%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                <li className='nav-item user-select-none' onClick={()=>profileSet(index)}>Profile Set</li>
+                                                <li className='nav-item user-select-none' onClick={()=>photoRemove(index)}>Delete</li>
+                                            </ul>
+                                        )}
+                                    </div>
+                                </>
+                            )
+                        })}
+                    </div>
+                </>
+            }
+
         </div>
     );
 };

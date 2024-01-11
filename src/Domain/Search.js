@@ -60,7 +60,6 @@ function Search() {
         <h2 className='text-center mb-sm-3'>Search Your Partner Here</h2>
       </div>
       <div className=''>
-
         <div className='my-3'>
           <div className='container-80 search-card d-lg-block d-md-block d-sm-block d-none'>
             <Tabs

@@ -29,7 +29,6 @@ function Matches() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    console.log(isMatches)
     return (
         <div>
             <Profileheader />

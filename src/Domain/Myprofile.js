@@ -5,6 +5,7 @@ import Useraside from '../Common/page/Useraside'
 import Benifit from '../Common/page/Benefit'
 import '../Common/css/profile.css'
 
+// function file import 
 
 import addphoto from '../Common/image/add-photo.png'
 import verify from '../Common/image/verifydetails.png'
@@ -32,6 +33,7 @@ function Myprofile() {
   const [editCareer, setEditCareer] = useState(0)
   const [editFamily, setEditFamily] = useState(0)
   const [editContact, setEditContact] = useState(0)
+  const [image, setImage] = useState(null);
 
 
   const handleEdit = (item) => {
@@ -76,7 +78,21 @@ function Myprofile() {
       setEditContact(0)
     }
   }
+  const handleImageChange = (event) => {
+    const selectedFile = event.target.files[0];
 
+    if (selectedFile) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        // Set the uploaded image to the state
+        setImage(e.target.result);
+      };
+
+      // Read the selected file as a data URL
+      reader.readAsDataURL(selectedFile);
+    }
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -95,7 +111,8 @@ function Myprofile() {
             <div className='col-lg-6 col-12 px-lg-3 px-md-2 px-1'>
               <div className='section-profiles '>
                 <div className='profile-photo'>
-                  <img src={addphoto} />
+                  <img src={image} />
+                  <img src={addphoto} onClick={handleImageChange}/>
                   <div className='profile-id'>
                     <h1>Tamil Selvan</h1>
                     <p>ID : SYM000001</p>
