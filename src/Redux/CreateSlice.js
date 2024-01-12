@@ -10,7 +10,8 @@ export const CrateSlice = createSlice({
         currentPage:1,
         isMatches:'All',
         paymentProcess : [],
-        profileImage : ''
+        profileImage : '',
+        backgroungImage : ''
     },
 
     reducers : {
@@ -35,11 +36,14 @@ export const CrateSlice = createSlice({
         setProfileImage:(state,action) => {
             state.profileImage = action.payload
         },
+        setBackgroungImage:(state,action) => {
+            state.backgroungImage = action.payload
+        },
         
         
     }
 }) 
 
-export const {setClass1Hide, setprofileDetails,setsingleProfile,setCurrentPage,setIsMatches,setPaymentProcess,setProfileImage} = CrateSlice.actions
+export const {setClass1Hide, setprofileDetails,setsingleProfile,setCurrentPage,setIsMatches,setPaymentProcess,setProfileImage,setBackgroungImage} = CrateSlice.actions
 export default CrateSlice.reducer
 

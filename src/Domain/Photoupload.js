@@ -5,20 +5,35 @@ import Useraside from '../Common/page/Useraside'
 import Benifit from '../Common/page/Benefit'
 import '../Common/css/profile.css'
 
-
+import ajith from '../Common/image/ajith.jpeg'
 import addphoto from '../Common/image/add-photo.png'
 import editprofile from '../Common/image/white-edit.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import PhotoCrop from './PhotoCrop';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProfileImage } from '../Redux/CreateSlice';
 
 function Photoupload() {
+    const { profileImage,backgroungImage } = useSelector((state) => state.matrimony)
     // State for storing file data and preview URLs
     const [files, setFiles] = useState([]);
     const [previewUrls, setPreviewUrls] = useState([]);
 
-    // Function to handle file uploads
+    const dispatch = useDispatch()
+
+    // css image set 
+    const myStyles = {
+        borderRadius: '12px',
+        backgroundImage: `url(${backgroungImage})`,
+        height: '50vh',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+    };
+
+      // Function to handle file uploads
     const handleFileUpload = (e) => {
         const uploadedFiles = Array.from(e.target.files);
 
@@ -48,6 +63,7 @@ function Photoupload() {
         const idToRemove = id; // Replace with the actual 'id' you want to remove
         const updatedFiles = previewUrls.filter((file, index) => index !== idToRemove);
         setPreviewUrls(updatedFiles);
+        
     };
     const proofupdate = () => {
         alert('Photo update succssfully.')
@@ -55,7 +71,9 @@ function Photoupload() {
     }
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
+    // console.log(1,profileImage)
+    console.log(2,backgroungImage)
     return (
         <>
             <Profileheader />
@@ -65,38 +83,27 @@ function Photoupload() {
                         <div className='col-lg-3 col-12'>
                             <div className='d-lg-block d-none position-section'>
                                 <Useraside />
+
                             </div>
                         </div>
                         <div className='col-lg-6 col-12'>
                             <div className='section-profiles'>
-                                <div className='profile-photo'>
-                                    <img src={editprofile} className='editprofile' />
-                                    <div className='profile-id'>
-                                        <h1>Tamil Selvan</h1>
-                                        <p>ID : SYM000001</p>
-                                    </div>
-                                </div>
-                                {/* <div className='m-4'>
-                                    <div>
-                                        <input type="file" id="upload" multiple onChange={handleFileUpload} style={{ display: 'none' }} />
-                                        <label htmlFor="upload" className="custom-file-upload">
-                                            <img src={addphoto} alt="upload" className="w-100 h-100" />
-                                        </label>
-                                        <div className='row m-0 py-3'>
-                                            {previewUrls.map((previewUrl, index) => (
-                                                <div className='col-4 mb-2'>
-                                                    <img key={index} src={previewUrl} alt="preview" className='w-100 h-100 card-views p-0' />
-                                                    <button type="button" className="close position-absolute border-0 bg-none close-btn" onClick={() => deleteitem(index)}>
-                                                        <FontAwesomeIcon icon={faClose} />
-                                                    </button>
-                                                </div>
-                                            ))}
+                                {backgroungImage ?
+                                    <>
+                                        <div style={myStyles}>
+                                            {/* <img src={editprofile} className='editprofile' /> */}
+                                            {/* <div className='profile-id'>
+                                                <h1>Tamil Selvan</h1>
+                                                <p>ID : SYM000001</p>
+                                            </div> */}
                                         </div>
-                                        <div className='proof-verified mt-4'>
-                                            {previewUrls.length > 0 ? <><div className='text-center save-btn'><button type='button' onClick={() => proofupdate()}>Upload</button></div></> : ""}
+                                    </>
+                                    :
+                                    <>
+                                        <div className='profile-photo'>
                                         </div>
-                                    </div>
-                                </div> */}
+                                    </>
+                                }
                                 <PhotoCrop />
                             </div>
                         </div>

@@ -25,9 +25,11 @@ import family1 from '../Common/image/family1.png'
 import family2 from '../Common/image/family2.png'
 import contact1 from '../Common/image/contact1.png'
 import contact2 from '../Common/image/contact2.png'
+import { useSelector } from 'react-redux'
 
 
 function Myprofile() {
+  const { profileImage, backgroungImage } = useSelector((state) => state.matrimony)
   const [editBasic, setEditBasic] = useState(0)
   const [editEducation, setEditEducation] = useState(0)
   const [editCareer, setEditCareer] = useState(0)
@@ -35,6 +37,15 @@ function Myprofile() {
   const [editContact, setEditContact] = useState(0)
   const [image, setImage] = useState(null);
 
+  // css image set 
+  const myStyles = {
+    borderRadius: '12px',
+    backgroundImage: `url(${backgroungImage})`,
+    height: '50vh',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  };
 
   const handleEdit = (item) => {
     if (item === "Basic") {
@@ -111,12 +122,26 @@ function Myprofile() {
             <div className='col-lg-6 col-12 px-lg-3 px-md-2 px-1'>
               <div className='section-profiles '>
                 <div className='profile-photo'>
-                  <img src={image} />
-                  <img src={addphoto} onClick={handleImageChange}/>
-                  <div className='profile-id'>
-                    <h1>Tamil Selvan</h1>
-                    <p>ID : SYM000001</p>
-                  </div>
+                  {backgroungImage ?
+                    <>
+                      <div style={myStyles}>
+                        {/* <img src={editprofile} className='editprofile' /> */}
+                        <div className='profile-id'>
+                          <h1>Tamil Selvan</h1>
+                          <p>ID : SYM000001</p>
+                        </div>
+                      </div>
+                    </>
+                    :
+                    <>
+                      <div className='profile-photo'>
+                        <div className='profile-id'>
+                          <h1>Tamil Selvan</h1>
+                          <p>ID : SYM000001</p>
+                        </div>
+                      </div>
+                    </>
+                  }
                 </div>
                 <div className='profile-verify'>
                   <div className='verify'>

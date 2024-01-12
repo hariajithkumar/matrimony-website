@@ -6,7 +6,7 @@
 
 .profile-photo {
     border-radius: 12px;
-    background-image: url('../image/profile-photo.png');
+    background-image: url('../image/bg-image.jpg');
     height: 50vh !important;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,8 +24,9 @@
 }
 
 .profile-id {
-    margin-top: 30%;
+    margin-top: 0%;
     margin-left: 5%;
+    padding-top: 40%;
 }
 
 .profile-id h1 {

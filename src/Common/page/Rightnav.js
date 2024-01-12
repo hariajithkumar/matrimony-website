@@ -5,19 +5,27 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import Logo from '../image/Sahyatri-Matrimony-Logo.png';
 import { setClass1Hide } from '../../Redux/CreateSlice'; import '../css/rightnav.css'; // You can style your navigation bar in a separate CSS file
+
 import '../css/topheader.css'
+
 import userprofile from '../image/userprofile.png'
 import ajith from '../image/profile-2.png'
 import rightarrow from '../image/rigth-arrow.png'
 import rightinactive from '../image/right-inactive.png'
+import userImage from '../image/profile-img.jpg'
 // import rightinactive from '../image/white-right.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 const Rightnav = ({ isOpen, onClose }) => {
-    const { isClass1Show } = useSelector((state) => state.matrimony)
+    const { isClass1Show, profileImage } = useSelector((state) => state.matrimony)
     const [isDropdownVisible, setDropdownVisible] = useState(false);
     const [isRightNavOpen, setIsRightNavOpen] = useState(false);
+    const [isFullScreen, setIsFullScreen] = useState(false);
+
+    const toggleFullScreen = () => {
+        setIsFullScreen(!isFullScreen);
+    };
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -46,9 +54,9 @@ const Rightnav = ({ isOpen, onClose }) => {
             navigate('/Myprofile')
         } else if (item === 'Partner') {
             navigate('/Partner')
-        }else if (item === 'Matches') {
+        } else if (item === 'Matches') {
             navigate('/matches')
-        } 
+        }
         else if (item === 'Photoupload') {
             navigate('/Photoupload')
         } else if (item === 'Proofverify') {
@@ -56,6 +64,10 @@ const Rightnav = ({ isOpen, onClose }) => {
         }
     };
 
+    const profilePage = () =>{
+        navigate('/Photoupload')
+    }
+    
     return (
         <div className={`right-nav ${isOpen ? 'open' : ''} scroll-container`}>
             <div className='scroll-container'>
@@ -67,13 +79,13 @@ const Rightnav = ({ isOpen, onClose }) => {
                                 <div className='row m-0'>
                                     <div className='col-lg-6 align-self-center'>
                                         <div class="profile-container">
-                                            <img src={ajith} alt="Profile Image" class="profile-image" />
+                                            {profileImage ? <><div className={`image-viewer ${isFullScreen ? 'full-screen' : ''}`} onClick={toggleFullScreen}><img src={profileImage} alt="Profile Image" class="profile-image" /></div></> : <><img src={userImage} className='w-100' /></>}
                                         </div>
                                     </div>
                                     <div className='col-lg-6 profile-name align-self-center'>
                                         <h4>Hi Ajith !</h4>
                                         <h5>ID : SYM000001</h5>
-                                        <h6>View Profile</h6>
+                                        <h6 className='user-select-none' onClick={profilePage}>Profile Update</h6>
                                     </div>
                                 </div>
                                 <hr className='mt-0' />

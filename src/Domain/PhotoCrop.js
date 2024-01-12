@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faEllipsis, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import Resizeimage from './Resizeimage';
 import { useDispatch , useSelector } from 'react-redux';
-import { setProfileImage } from '../Redux/CreateSlice';
+import { setBackgroungImage, setProfileImage } from '../Redux/CreateSlice';
 
 
 
@@ -53,7 +53,7 @@ const imageSize = (file) => {
 };
 
 const PhotoCrop = () => {
-    const { profileImage } = useSelector((state) => state.matrimony)
+    const { profileImage,backgroungImage } = useSelector((state) => state.matrimony)
     const [image, setImage] = useState(null);
     const [cropImage, setCropImage] = useState([]);
     const [cropper, setCropper] = useState();
@@ -133,15 +133,32 @@ const PhotoCrop = () => {
     // option delete profile photo fn 
     const photoRemove = (id) =>{
         const idToRemove = id; // Replace with the actual 'id' you want to remove
+        const delete_img = finalImage[id]
         const updatedFiles = finalImage.filter((file, index) => index !== idToRemove);
         setFinalImage(updatedFiles);
+        if(profileImage == delete_img){
+            dispatch(setProfileImage(''))
+        }
+        if(backgroungImage == delete_img){
+            dispatch(setBackgroungImage(''));
+        }
         alert("Remove the Image")
     }
+
     // profileset image fn 
     const profileSet = (data) =>{
         const profile_photo = finalImage[data]
         dispatch(setProfileImage(profile_photo))
+        setOptionsState({})
+        alert("Success upload your profile")
     }
+    const backgroundSet = (data) => {
+        const profile_photos = finalImage[data]
+        dispatch(setBackgroungImage(profile_photos))
+        setOptionsState({})
+        alert("Background profile Successfully Updated")
+    }
+    console.log(backgroungImage)
     return (
         <div>
             <div {...getRootProps()} style={{ width: '150px', height: '40px', position: 'relative', left: '30px', paddingBottom: '50px', marginTop: '25px' }}>
@@ -209,8 +226,9 @@ const PhotoCrop = () => {
                                             />
                                         </span>
                                         {optionsState[index] && (
-                                            <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '60%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                            <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
                                                 <li className='nav-item user-select-none' onClick={()=>profileSet(index)}>Profile Set</li>
+                                                <li className='nav-item user-select-none' onClick={()=>backgroundSet(index)}>Background Set</li>
                                                 <li className='nav-item user-select-none' onClick={()=>photoRemove(index)}>Delete</li>
                                             </ul>
                                         )}
