@@ -83,7 +83,6 @@ function Photoupload() {
                         <div className='col-lg-3 col-12'>
                             <div className='d-lg-block d-none position-section'>
                                 <Useraside />
-
                             </div>
                         </div>
                         <div className='col-lg-6 col-12'>

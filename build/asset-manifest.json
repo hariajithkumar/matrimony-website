@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/matrimony/static/css/main.7bfe8331.css",
-    "main.js": "/matrimony/static/js/main.0a2476cb.js",
+    "main.css": "/matrimony/static/css/main.694778f8.css",
+    "main.js": "/matrimony/static/js/main.75cda9e7.js",
     "static/js/27.3e2b0b12.chunk.js": "/matrimony/static/js/27.3e2b0b12.chunk.js",
     "static/media/top-header.png": "/matrimony/static/media/top-header.7f23aafeb26ca2fd2d7e.png",
     "static/media/header-image.png": "/matrimony/static/media/header-image.2017ced3ee9f7621355d.png",
@@ -19,10 +19,11 @@
     "static/media/videocall-group.png": "/matrimony/static/media/videocall-group.63c44f2113e018d2c064.png",
     "static/media/matrimony9.jpg": "/matrimony/static/media/matrimony9.ef49469a06e715a8272d.jpg",
     "static/media/profile-5.jpg": "/matrimony/static/media/profile-5.c88e9c8e7f2c86cba8d9.jpg",
-    "static/media/profile-photo.png": "/matrimony/static/media/profile-photo.a4718aa8a2b403d2440a.png",
     "static/media/profile-7.jpg": "/matrimony/static/media/profile-7.c96570e8bbccfcc25be7.jpg",
     "static/media/profile-3.png": "/matrimony/static/media/profile-3.6fd5ceeeb5cf9d9578e9.png",
+    "static/media/bg-image.jpg": "/matrimony/static/media/bg-image.a592ec32cfb3d923d7bb.jpg",
     "static/media/video-call-2.png": "/matrimony/static/media/video-call-2.2c18ac667ea157ea0ca7.png",
+    "static/media/ajith.jpeg": "/matrimony/static/media/ajith.2fd59f62894c43b01342.jpeg",
     "static/media/work.png": "/matrimony/static/media/work.3ee20f0cd18b157f3b22.png",
     "static/media/profile-2.png": "/matrimony/static/media/profile-2.757567899af942b43cd3.png",
     "static/media/payment1.png": "/matrimony/static/media/payment1.8e87c931c80e5301a4c5.png",
@@ -44,7 +45,7 @@
     "static/media/slick.woff": "/matrimony/static/media/slick.295183786cd8a1389865.woff"
   },
   "entrypoints": [
-    "static/css/main.7bfe8331.css",
-    "static/js/main.0a2476cb.js"
+    "static/css/main.694778f8.css",
+    "static/js/main.75cda9e7.js"
   ]
 }

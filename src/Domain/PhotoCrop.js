@@ -4,12 +4,13 @@ import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 import imageCompression from "browser-image-compression";
 // import Cropper from 'react-easy-crop';
+import Select from 'react-select';
 
 import addphoto from '../Common/image/add-photo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faEllipsis, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import Resizeimage from './Resizeimage';
-import { useDispatch , useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setBackgroungImage, setProfileImage } from '../Redux/CreateSlice';
 
 
@@ -53,7 +54,7 @@ const imageSize = (file) => {
 };
 
 const PhotoCrop = () => {
-    const { profileImage,backgroungImage } = useSelector((state) => state.matrimony)
+    const { profileImage, backgroungImage } = useSelector((state) => state.matrimony)
     const [image, setImage] = useState(null);
     const [cropImage, setCropImage] = useState([]);
     const [cropper, setCropper] = useState();
@@ -62,7 +63,13 @@ const PhotoCrop = () => {
     const [croppedImage, setCroppedImage] = useState(null);
     const [finalImage, setFinalImage] = useState([])
     const [optionsState, setOptionsState] = useState({});
-
+    const [selected, setSelected] = useState('');
+    const [selectCategory, setselectCategory] = useState([])
+    const [filterProfile, setFilterProfile] = useState([])
+    const height = [
+        { label: 'Profile', value: 'Profile' },
+        { label: 'Horoscope', value: 'Horoscope' }
+    ];
     const dispatch = useDispatch();
 
     const onDrop = useCallback(async (acceptedFiles) => {
@@ -102,10 +109,12 @@ const PhotoCrop = () => {
             setCroppedImage(croppedDataUrl);
             setCropImage([...cropImage, croppedDataUrl]);
             setFinalImage([...finalImage, croppedDataUrl])
+            setselectCategory([...selectCategory, { category: selected.value, image: croppedDataUrl }])
+            setSelected('')
         }
         setImage(null);
     };
-   
+
 
     const { getRootProps, getInputProps } = useDropzone({
         // image: 'addphoto',
@@ -131,40 +140,86 @@ const PhotoCrop = () => {
         }));
     };
     // option delete profile photo fn 
-    const photoRemove = (id) =>{
+    const photoRemove = (id) => {
         const idToRemove = id; // Replace with the actual 'id' you want to remove
         const delete_img = finalImage[id]
-        const updatedFiles = finalImage.filter((file, index) => index !== idToRemove);
-        setFinalImage(updatedFiles);
-        if(profileImage == delete_img){
+        // const updatedFiles = finalImage.filter((file, index) => index !== idToRemove);
+        // setFinalImage(updatedFiles);
+        const updatedFiles = selectCategory.filter((data, index) => index !== idToRemove);
+        setselectCategory(updatedFiles);
+        if (profileImage == delete_img) {
             dispatch(setProfileImage(''))
         }
-        if(backgroungImage == delete_img){
+        if (backgroungImage == delete_img) {
             dispatch(setBackgroungImage(''));
         }
         alert("Remove the Image")
     }
 
     // profileset image fn 
-    const profileSet = (data) =>{
-        const profile_photo = finalImage[data]
+    const profileSet = (data) => {
+        const profile_photo = selectCategory[data].image
         dispatch(setProfileImage(profile_photo))
         setOptionsState({})
         alert("Success upload your profile")
     }
     const backgroundSet = (data) => {
-        const profile_photos = finalImage[data]
+        const profile_photos = selectCategory[data].image
         dispatch(setBackgroungImage(profile_photos))
         setOptionsState({})
         alert("Background profile Successfully Updated")
     }
-    console.log(backgroungImage)
+
+    // fliter options
+    const handleFilter = (filterOption) => {
+        if (filterOption == 'profile') {
+            const updatedFiles = selectCategory.filter((data, index) => selectCategory[index].category == 'Profile');
+            setFilterProfile(updatedFiles);
+        } else if (filterOption == 'horoscope') {
+            const updatedFiles = selectCategory.filter((data, index) => selectCategory[index].category == 'Horoscope');
+            setFilterProfile(updatedFiles);
+        } else {
+            const updatedFiles = selectCategory.filter((data, index) => selectCategory);
+            setFilterProfile(updatedFiles);
+        }
+    }
+
+    console.log(1, selectCategory);
+    console.log(2, filterProfile)
     return (
         <div>
-            <div {...getRootProps()} style={{ width: '150px', height: '40px', position: 'relative', left: '30px', paddingBottom: '50px', marginTop: '25px' }}>
-                <label htmlFor="upload" className="custom-file-upload">
-                    <img src={addphoto} alt="upload" className="w-100 h-100" onClick={selectImage} />
-                </label>
+            <div className='my-3 text-center'>
+                <button className='upload-img' onClick={() => handleFilter('all')}>All</button>
+                <button className='upload-img' onClick={() => handleFilter('profile')}>Profile</button>
+                <button className='upload-img' onClick={() => handleFilter('horoscope')}>Horoscope</button>
+            </div>
+            <div className='row m-0'>
+                <div className='col-lg-6 col-md-6 col-12 align-self-center'>
+                    <label className='my-2'>Select Your Option</label>
+                    <Select
+                        options={height}
+                        isSearchable
+                        className='mb-2'
+                        value={selected}
+                        onChange={(selectedOption) => setSelected(selectedOption)}
+                    />
+                </div>
+                <div className='col-lg-6 col-md-6 col-12'>
+                    {selected == '' ?
+                        <></>
+                        :
+                        <>
+                            <div {...getRootProps()} style={{ width: '95%', height: '40px', position: 'relative', left: '30px', paddingBottom: '50px', marginTop: '8px' }}>
+                                <label className='mt-0'>Select your {selected.value}</label><br />
+                                <label htmlFor="upload" className="custom-file-upload mt-1">
+                                    <img src={addphoto} alt="upload" className="w-100 h-100" onClick={selectImage} />
+                                </label>
+                            </div>
+                        </>
+                    }
+                </div>
+
+
             </div>
             {errorMessage && <p className='mx-4 my-3 text-danger'>{errorMessage}</p>}
             {hideCrop ? <></> : <> {image ? (
@@ -210,26 +265,26 @@ const PhotoCrop = () => {
                 })}
             </div>
             {cropImage.length > 0 ? <><div><button className='upload-img' onClick={save}>Upload Image</button></div></> : <></>}
-            {cropImage.length > 0 ? <></> :
+            {/* {cropImage.length > 0 ? <></> :
                 <>
                     <div className='row m-0'>
                         {finalImage.map((data, index) => {
-                            return (                                   
+                            return (
                                 <>
                                     <div key={data.id} className='col-6 my-3 text-center position-relative'>
                                         <img src={data} className='h-100 upload-photo ' />
-                                        <span onClick={() => handleOptionClick(index)} className='position-absolute top-0 p-2' style={{ left: '84%',width: '20px',height: '20px',border: 'none',borderRadius: '10px',background: 'black',marginTop: '10px',display:'flex',alignItems:'center',justifyContent:'center' }}>
+                                        <span onClick={() => handleOptionClick(index)} className='position-absolute top-0 p-2' style={{ left: '84%', width: '20px', height: '20px', border: 'none', borderRadius: '10px', background: 'black', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                             <FontAwesomeIcon
                                                 icon={faEllipsisVertical}
                                                 style={{ color: '#FFF' }}
-                                                
+
                                             />
                                         </span>
                                         {optionsState[index] && (
                                             <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-                                                <li className='nav-item user-select-none' onClick={()=>profileSet(index)}>Profile Set</li>
-                                                <li className='nav-item user-select-none' onClick={()=>backgroundSet(index)}>Background Set</li>
-                                                <li className='nav-item user-select-none' onClick={()=>photoRemove(index)}>Delete</li>
+                                                <li className='nav-item user-select-none' onClick={() => profileSet(index)}>Profile Set</li>
+                                                <li className='nav-item user-select-none' onClick={() => backgroundSet(index)}>Background Set</li>
+                                                <li className='nav-item user-select-none' onClick={() => photoRemove(index)}>Delete</li>
                                             </ul>
                                         )}
                                     </div>
@@ -237,6 +292,68 @@ const PhotoCrop = () => {
                             )
                         })}
                     </div>
+                </>
+            } */}
+            {cropImage.length > 0 ? <></> :
+                <>
+                    {filterProfile.length > 0 ?
+                        <>
+                            <div className='row m-0'>
+                                {filterProfile.map((data, index) => {
+                                    return (
+                                        <>
+                                            <div key={data.id} className='col-6 my-3 text-center position-relative'>
+                                                <img src={data.image} className='h-100 upload-photo ' />
+                                                <span onClick={() => handleOptionClick(index)} className='position-absolute top-0 p-2' style={{ left: '84%', width: '20px', height: '20px', border: 'none', borderRadius: '10px', background: 'black', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                    <FontAwesomeIcon
+                                                        icon={faEllipsisVertical}
+                                                        style={{ color: '#FFF' }}
+
+                                                    />
+                                                </span>
+                                                {optionsState[index] && (
+                                                    <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                        <li className='nav-item user-select-none' onClick={() => profileSet(index)}>Profile Set</li>
+                                                        <li className='nav-item user-select-none' onClick={() => backgroundSet(index)}>Background Set</li>
+                                                        <li className='nav-item user-select-none' onClick={() => photoRemove(index)}>Delete</li>
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        </>
+                                    )
+                                })}
+                            </div>
+                        </>
+                        :
+                        <>
+                            <div className='row m-0'>
+                                {selectCategory.map((data, index) => {
+                                    return (
+                                        <>
+                                            <div key={data.id} className='col-6 my-3 text-center position-relative'>
+                                                <img src={data.image} className='h-100 upload-photo ' />
+                                                <span onClick={() => handleOptionClick(index)} className='position-absolute top-0 p-2' style={{ left: '84%', width: '20px', height: '20px', border: 'none', borderRadius: '10px', background: 'black', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                    <FontAwesomeIcon
+                                                        icon={faEllipsisVertical}
+                                                        style={{ color: '#FFF' }}
+
+                                                    />
+                                                </span>
+                                                {optionsState[index] && (
+                                                    <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                        <li className='nav-item user-select-none' onClick={() => profileSet(index)}>Profile Set</li>
+                                                        <li className='nav-item user-select-none' onClick={() => backgroundSet(index)}>Background Set</li>
+                                                        <li className='nav-item user-select-none' onClick={() => photoRemove(index)}>Delete</li>
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        </>
+                                    )
+                                })}
+                            </div>
+                        </>
+                    }
+
                 </>
             }
 
