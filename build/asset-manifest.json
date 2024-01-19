@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/matrimony/static/css/main.694778f8.css",
-    "main.js": "/matrimony/static/js/main.75cda9e7.js",
+    "main.js": "/matrimony/static/js/main.0db06dea.js",
     "static/js/27.3e2b0b12.chunk.js": "/matrimony/static/js/27.3e2b0b12.chunk.js",
     "static/media/top-header.png": "/matrimony/static/media/top-header.7f23aafeb26ca2fd2d7e.png",
     "static/media/header-image.png": "/matrimony/static/media/header-image.2017ced3ee9f7621355d.png",
@@ -46,6 +46,6 @@
   },
   "entrypoints": [
     "static/css/main.694778f8.css",
-    "static/js/main.75cda9e7.js"
+    "static/js/main.0db06dea.js"
   ]
 }

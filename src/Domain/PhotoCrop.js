@@ -1,11 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 import imageCompression from "browser-image-compression";
 // import Cropper from 'react-easy-crop';
 import Select from 'react-select';
-
+import download from 'js-file-download';
+import JsFileDownloader from 'js-file-downloader'
 import addphoto from '../Common/image/add-photo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faEllipsis, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
@@ -70,11 +71,15 @@ const PhotoCrop = () => {
         { label: 'Profile', value: 'Profile' },
         { label: 'Horoscope', value: 'Horoscope' }
     ];
+    const file_path = useRef(null);
+
     const dispatch = useDispatch();
 
     const onDrop = useCallback(async (acceptedFiles) => {
         const file = acceptedFiles[0];
+        console.log('file', file)
         const imageDimensions = await imageSize(file);
+        console.log('imageDimensions', imageDimensions)
         const options = {
             maxSizeMB: 1,
             maxWidthOrHeight: imageDimensions?.width > 1300 ? 1300 : imageDimensions?.width,
@@ -83,12 +88,13 @@ const PhotoCrop = () => {
 
         const compressedImg = await imageCompression(file, options);
         // Convert the compressed image to base64
-        const base64String = await convertToBase64(compressedImg);
-
+        const base64String = await convertToBase64(file);
+        file_path.current = file;
         // return base64String;
         setImage(URL.createObjectURL(file));
         setErrorMessage('');
     }, []);
+    console.log('File:', file_path.current);
 
     const convertToBase64 = (file) => {
         return new Promise((resolve, reject) => {
@@ -102,14 +108,13 @@ const PhotoCrop = () => {
     const selectImage = () => {
         setHideCrop(0);
     }
-
     const handleCrop = async () => {
         if (typeof cropper !== 'undefined') {
             const croppedDataUrl = cropper.getCroppedCanvas().toDataURL();
             setCroppedImage(croppedDataUrl);
             setCropImage([...cropImage, croppedDataUrl]);
             setFinalImage([...finalImage, croppedDataUrl])
-            setselectCategory([...selectCategory, { category: selected.value, image: croppedDataUrl }])
+            setselectCategory([...selectCategory, { path: croppedDataUrl, name: file_path.current.name, category: selected.value, image: croppedDataUrl }])
             setSelected('')
         }
         setImage(null);
@@ -184,6 +189,36 @@ const PhotoCrop = () => {
         }
     }
 
+    const downloadPdf = (index) => {
+        // Check if the string is a data URI
+        const dataUriRegex = /^data:(.*?);(?:.*?),(.*)$/;
+        const match = index.image.match(dataUriRegex);
+
+        if (match && match.length === 3) {
+            const mimeType = match[1];
+            const base64String = match[2];
+
+            // Decode and download
+            const byteCharacters = atob(base64String);
+            const byteNumbers = new Array(byteCharacters.length);
+
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: mimeType });
+
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = index.name;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            console.error('Invalid data URI format');
+        }
+    };
     console.log(1, selectCategory);
     console.log(2, filterProfile)
     return (
@@ -311,13 +346,26 @@ const PhotoCrop = () => {
 
                                                     />
                                                 </span>
-                                                {optionsState[index] && (
-                                                    <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-                                                        <li className='nav-item user-select-none' onClick={() => profileSet(index)}>Profile Set</li>
-                                                        <li className='nav-item user-select-none' onClick={() => backgroundSet(index)}>Background Set</li>
-                                                        <li className='nav-item user-select-none' onClick={() => photoRemove(index)}>Delete</li>
-                                                    </ul>
-                                                )}
+                                                {selectCategory[index].category == "Horoscope" || filterProfile[index].category == "Horoscope" ?
+                                                    <>
+                                                        {optionsState[index] && (
+                                                            <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                                <li className='nav-item user-select-none' onClick={() => downloadPdf(data)}>Download</li>
+                                                            </ul>
+                                                        )}
+                                                    </>
+                                                    :
+                                                    <>
+                                                        {optionsState[index] && (
+                                                            <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                                <li className='nav-item user-select-none' onClick={() => profileSet(index)}>Profile Set</li>
+                                                                <li className='nav-item user-select-none' onClick={() => backgroundSet(index)}>Background Set</li>
+                                                                <li className='nav-item user-select-none' onClick={() => photoRemove(index)}>Delete</li>
+                                                            </ul>
+                                                        )}
+                                                    </>
+                                                }
+
                                             </div>
                                         </>
                                     )
@@ -339,13 +387,45 @@ const PhotoCrop = () => {
 
                                                     />
                                                 </span>
-                                                {optionsState[index] && (
-                                                    <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-                                                        <li className='nav-item user-select-none' onClick={() => profileSet(index)}>Profile Set</li>
-                                                        <li className='nav-item user-select-none' onClick={() => backgroundSet(index)}>Background Set</li>
-                                                        <li className='nav-item user-select-none' onClick={() => photoRemove(index)}>Delete</li>
-                                                    </ul>
-                                                )}
+                                                <>
+                                                    {optionsState[index] && (
+                                                        <>
+                                                            {selectCategory[index].category == "Horoscope" || filterProfile[index].category === "Horoscope" ? (
+                                                                <>
+                                                                    <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                                        <li className='nav-item user-select-none' onClick={() => downloadPdf(index)}>Download</li>
+                                                                    </ul>
+                                                                </>
+                                                            ) : (
+                                                                <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                                    <li className='nav-item user-select-none' onClick={() => profileSet(index)}>Profile Set</li>
+                                                                    <li className='nav-item user-select-none' onClick={() => backgroundSet(index)}>Background Set</li>
+                                                                    <li className='nav-item user-select-none' onClick={() => photoRemove(index)}>Delete</li>
+                                                                </ul>
+                                                            )}
+                                                        </>
+                                                    )}
+                                                </>
+                                                :
+                                                <>
+                                                    {optionsState[index] && (
+                                                        <>
+                                                            {filterProfile[index].category === "Horoscope" ? (
+                                                                <>
+                                                                    <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                                        <li className='nav-item user-select-none' onClick={() => downloadPdf(index)}>Download2</li>
+                                                                    </ul>
+                                                                </>
+                                                            ) : (
+                                                                <ul className='nav d-block' style={{ position: 'absolute', top: '35px', left: '49%', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '4px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                                                                    <li className='nav-item user-select-none' onClick={() => profileSet(index)}>Profile Set</li>
+                                                                    <li className='nav-item user-select-none' onClick={() => backgroundSet(index)}>Background Set</li>
+                                                                    <li className='nav-item user-select-none' onClick={() => photoRemove(index)}>Delete</li>
+                                                                </ul>
+                                                            )}
+                                                        </>
+                                                    )}
+                                                </>
                                             </div>
                                         </>
                                     )
